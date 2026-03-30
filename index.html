@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CT Holdings & Investments</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy: #0d1b3e;
+      --red: #8b0000;
+      --red-bright: #c0392b;
+      --gold: #c9a84c;
+      --light: #f4f4f0;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .display-font {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      background: var(--navy);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .navbar-brand img {
+      height: 48px;
+      width: auto;
+    }
+
+    .navbar-brand span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .navbar-brand span small {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .navbar-toggler {
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.8%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .nav-link {
+      color: rgba(255,255,255,0.85) !important;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 0.5rem 1rem !important;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 1rem; right: 1rem;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.25s;
+    }
+
+    .nav-link:hover { color: var(--gold) !important; }
+    .nav-link:hover::after { transform: scaleX(1); }
+
+    .btn-nav-cta {
+      background: var(--red);
+      color: var(--white) !important;
+      border-radius: 3px;
+      padding: 0.5rem 1.2rem !important;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .btn-nav-cta:hover { background: var(--red-bright) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 80% 50%, rgba(139,0,0,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 50%);
+    }
+
+    .hero-diagonal {
+      position: absolute;
+      right: -5%;
+      top: 0;
+      bottom: 0;
+      width: 45%;
+      background: var(--red);
+      clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+      opacity: 0.12;
+    }
+
+    .hero-content { position: relative; z-index: 2; }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 520px;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
+    .btn-primary-ct {
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 14px 32px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 3px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary-ct:hover {
+      background: var(--red-bright);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline-ct {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.4);
+      padding: 13px 30px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border-radius: 3px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline-ct:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 80px 0; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 580px;
+    }
+
+    .divider-ct {
+      width: 50px;
+      height: 3px;
+      background: var(--red);
+      margin: 1.2rem 0;
+    }
+
+    /* ── SERVICES ── */
+    .services-section { background: var(--light); }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 2.2rem 1.8rem;
+      height: 100%;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .service-card:hover {
+      border-bottom-color: var(--red);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      transform: translateY(-4px);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(139,0,0,0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--red);
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card h5 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    /* ── PRICING ── */
+    .price-card {
+      border-radius: 6px;
+      padding: 2rem 1.8rem;
+      height: 100%;
+      border: 1.5px solid #e8e8e8;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .price-card.featured {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: var(--white);
+    }
+
+    .price-card:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      border-color: var(--red);
+    }
+
+    .price-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.5rem;
+    }
+
+    .price-card.featured .price-label { color: var(--gold); }
+
+    .price-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .price-card.featured h4 { color: var(--white); }
+
+    .price-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .price-card.featured .price-amount { color: var(--gold); }
+
+    .price-period {
+      font-size: 0.82rem;
+      color: #888;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-card.featured .price-period { color: rgba(255,255,255,0.55); }
+
+    .price-features {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.8rem;
+    }
+
+    .price-features li {
+      font-size: 0.88rem;
+      padding: 6px 0;
+      color: #555;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .price-card.featured .price-features li { color: rgba(255,255,255,0.8); }
+
+    .price-features li i {
+      color: var(--red);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .price-card.featured .price-features li i { color: var(--gold); }
+
+    .btn-price {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-price-red {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .btn-price-red:hover { background: var(--red-bright); color: var(--white); }
+
+    .btn-price-outline {
+      border: 1.5px solid var(--navy);
+      color: var(--navy);
+    }
+
+    .btn-price-outline:hover { background: var(--navy); color: var(--white); }
+
+    .btn-price-gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn-price-gold:hover { filter: brightness(1.08); color: var(--navy); }
+
+    /* ── ABOUT ── */
+    .about-section { background: var(--white); }
+
+    .about-img-block {
+      position: relative;
+    }
+
+    .about-img-block .accent-block {
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 180px;
+      height: 180px;
+      background: var(--red);
+      opacity: 0.08;
+      border-radius: 4px;
+      z-index: 0;
+    }
+
+    .about-info-card {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 6px;
+      padding: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .about-info-card .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-info-card .item:last-child { margin-bottom: 0; }
+
+    .about-info-card .item i {
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .about-info-card .item span {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+    }
+
+    .directors-row { margin-top: 2rem; }
+
+    .director-card {
+      background: var(--light);
+      border-radius: 6px;
+      padding: 1.5rem;
+      border-left: 3px solid var(--red);
+    }
+
+    .director-card h6 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+
+    .director-card small { color: #888; font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase; }
+
+    /* ── COMPLIANCE BANNER ── */
+    .compliance-banner {
+      background: var(--navy);
+      padding: 60px 0;
+    }
+
+    .compliance-banner h3 {
+      color: var(--white);
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .compliance-banner p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.92rem;
+    }
+
+    .reg-badge {
+      display: inline-block;
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      padding: 6px 14px;
+      border-radius: 2px;
+      margin-top: 12px;
+    }
+
+    /* ── CONTACT ── */
+    .contact-section { background: var(--light); }
+
+    .contact-card {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 2.5rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-item:last-child { margin-bottom: 0; }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(139,0,0,0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--red);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item h6 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 3px;
+    }
+
+    .contact-item p {
+      font-size: 0.9rem;
+      color: var(--navy);
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .contact-form .form-control,
+    .contact-form .form-select {
+      border-radius: 3px;
+      border: 1.5px solid #e0e0e0;
+      font-size: 0.9rem;
+      padding: 12px 14px;
+      transition: border-color 0.2s;
+    }
+
+    .contact-form .form-control:focus,
+    .contact-form .form-select:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(139,0,0,0.08);
+    }
+
+    .contact-form label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 5px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080f22;
+      color: rgba(255,255,255,0.6);
+      padding: 60px 0 30px;
+    }
+
+    footer h5 {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    footer ul li { margin-bottom: 8px; }
+
+    footer ul li a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    footer ul li a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      font-size: 0.8rem;
+    }
+
+    .footer-reg {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up { animation: fadeUp 0.6s ease both; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+
+    @media (max-width: 768px) {
+      .hero { min-height: auto; padding: 80px 0 60px; }
+      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+      section { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="CT_Logo_2.jpg" alt="CT Holdings Logo" onerror="this.style.display='none'"/>
+      <span>
+        CT Holdings
+        <small>& Investments</small>
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link btn-nav-cta ms-2" href="#contact">Get a Quote</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-diagonal"></div>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-7 hero-content">
+        <div class="hero-badge fade-up">Registered · CIPC 2025/230601/07</div>
+        <h1 class="fade-up delay-1">
+          Reliable Bookkeeping<br/>
+          & <em>Financial Compliance</em><br/>
+          for South African Businesses
+        </h1>
+        <p class="fade-up delay-2">
+          CT Holdings & Investments delivers professional bookkeeping, VAT, payroll and
+          tax return services — helping small and medium businesses stay compliant, organised
+          and financially healthy.
+        </p>
+        <div class="d-flex flex-wrap gap-3 fade-up delay-3">
+          <a href="#pricing" class="btn-primary-ct">
+            View Packages <i class="bi bi-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn-outline-ct">
+            <i class="bi bi-chat-dots"></i> Talk to Us
+          </a>
+        </div>
+        <div class="hero-stats fade-up delay-3">
+          <div>
+            <div class="hero-stat-num">VAT</div>
+            <div class="hero-stat-label">Registered Services</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">PAYE</div>
+            <div class="hero-stat-label">Payroll & Payslips</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">SARS</div>
+            <div class="hero-stat-label">Tax Submissions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-6">
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">Professional Financial Services</h2>
+        <div class="divider-ct"></div>
+        <p class="section-sub">From day-to-day bookkeeping to annual tax returns, we handle the numbers so you can focus on running your business.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-journal-bookmark-fill"></i></div>
+          <h5>Bookkeeping</h5>
+          <p>Monthly bank reconciliation, P&L summaries and balance sheets — keeping your records clean and audit-ready.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-receipt-cutoff"></i></div>
+          <h5>VAT Returns</h5>
+          <p>Preparation, reconciliation and SARS submission of standard and complex VAT returns, handled correctly every period.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-people-fill"></i></div>
+          <h5>Payroll & PAYE</h5>
+          <p>Monthly payroll processing, payslips, EMP201 submissions and annual IRP5/IT3(a) reconciliation for your team.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-file-earmark-text-fill"></i></div>
+          <h5>Tax Returns</h5>
+          <p>Individual ITR12, basic and complex business tax returns prepared and submitted accurately to SARS.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-6">
+        <div class="section-label">Transparent Pricing</div>
+        <h2 class="section-title">Bookkeeping Packages</h2>
+        <div class="divider-ct"></div>
+        <p class="section-sub">All fees exclude VAT. Consumables cover printing, admin, courier and ad-hoc disbursements.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <!-- Starter -->
+      <div class="col-md-6 col-lg-3">
+        <div class="price-card">
+          <div class="price-label">Starter</div>
+          <h4>Very Small Business</h4>
+          <div class="price-amount">R500</div>
+          <div class="price-period">per month</div>
+          <ul class="price-features">
+            <li><i class="bi bi-check-circle-fill"></i> 10–59 transactions</li>
+            <li><i class="bi bi-check-circle-fill"></i> Not VAT-registered</li>
+            <li><i class="bi bi-check-circle-fill"></i> Monthly bookkeeping</li>
+            <li><i class="bi bi-check-circle-fill"></i> Bank reconciliation</li>
+            <li><i class="bi bi-check-circle-fill"></i> P&L summary</li>
+          </ul>
+          <a href="#contact" class="btn-price btn-price-outline">Get Started</a>
+        </div>
+      </div>
+      <!-- Core SME -->
+      <div class="col-md-6 col-lg-3">
+        <div class="price-card featured">
+          <div class="price-label">Most Popular</div>
+          <h4>Core SME</h4>
+          <div class="price-amount">R1,500</div>
+          <div class="price-period">per month</div>
+          <ul class="price-features">
+            <li><i class="bi bi-check-circle-fill"></i> 60–150 transactions</li>
+            <li><i class="bi bi-check-circle-fill"></i> VAT-registered</li>
+            <li><i class="bi bi-check-circle-fill"></i> VAT schedules</li>
+            <li><i class="bi bi-check-circle-fill"></i> Monthly reconciliations</li>
+            <li><i class="bi bi-check-circle-fill"></i> P&L & Balance Sheet</li>
+          </ul>
+          <a href="#contact" class="btn-price btn-price-gold">Get Started</a>
+        </div>
+      </div>
+      <!-- SME + Payroll -->
+      <div class="col-md-6 col-lg-3">
+        <div class="price-card">
+          <div class="price-label">SME + Payroll</div>
+          <h4>Higher Complexity</h4>
+          <div class="price-amount">R4k+</div>
+          <div class="price-period">per month</div>
+          <ul class="price-features">
+            <li><i class="bi bi-check-circle-fill"></i> Multiple employees</li>
+            <li><i class="bi bi-check-circle-fill"></i> Payroll & payslips</li>
+            <li><i class="bi bi-check-circle-fill"></i> Monthly EMP201</li>
+            <li><i class="bi bi-check-circle-fill"></i> VAT included</li>
+            <li><i class="bi bi-check-circle-fill"></i> Management reports</li>
+          </ul>
+          <a href="#contact" class="btn-price btn-price-red">Get a Quote</a>
+        </div>
+      </div>
+      <!-- Tax Returns -->
+      <div class="col-md-6 col-lg-3">
+        <div class="price-card">
+          <div class="price-label">Tax Returns</div>
+          <h4>Annual Submissions</h4>
+          <div class="price-amount">R500</div>
+          <div class="price-period">from / per return</div>
+          <ul class="price-features">
+            <li><i class="bi bi-check-circle-fill"></i> ITR12 from R500</li>
+            <li><i class="bi bi-check-circle-fill"></i> Basic business R1,600</li>
+            <li><i class="bi bi-check-circle-fill"></i> Complex from R4,500</li>
+            <li><i class="bi bi-check-circle-fill"></i> +10–20% consumables</li>
+            <li><i class="bi bi-check-circle-fill"></i> Clean-up from R500</li>
+          </ul>
+          <a href="#contact" class="btn-price btn-price-outline">Enquire Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE BANNER -->
+<div class="compliance-banner">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <h3>Officially Registered with CIPC</h3>
+        <p>CT Holdings and Investments (Pty) Ltd is a registered South African private company, incorporated 17 March 2025.</p>
+        <div class="reg-badge">Reg. No. 2025/230601/07</div>
+      </div>
+      <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+        <a href="#contact" class="btn-primary-ct">Start Working With Us <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">Reliable. Affordable. Compliant.</h2>
+        <div class="divider-ct"></div>
+        <p style="color:#555; line-height:1.8; margin-bottom:1.5rem;">
+          CT Holdings & Investments was founded to give South African small and medium businesses access to
+          professional financial services that are accurate, timely and affordable. We understand the regulatory landscape
+          and help our clients stay compliant with SARS, the Companies Act and CIPC requirements.
+        </p>
+        <p style="color:#555; line-height:1.8;">
+          Whether you're a sole trader needing basic bookkeeping or a growing business requiring payroll and VAT management,
+          we tailor our service to your stage and budget.
+        </p>
+
+        <div class="about-info-card mt-4">
+          <div class="item">
+            <i class="bi bi-telephone-fill"></i>
+            <span>+27 60 951 1263 &nbsp;|&nbsp; +27 64 883 3476</span>
+          </div>
+          <div class="item">
+            <i class="bi bi-envelope-fill"></i>
+            <span>csmokoena11@gmail.com<br/>tisetsoclio98@gmail.com</span>
+          </div>
+          <div class="item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <span>3006 Thembelihle Street, Slovo – Winterveld, Pretoria, Gauteng, 0198</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="section-label">Leadership</div>
+        <h3 class="section-title" style="font-size:1.7rem;">Meet the Directors</h3>
+        <div class="divider-ct"></div>
+        <div class="row g-3 directors-row">
+          <div class="col-md-6">
+            <div class="director-card">
+              <h6>Charlie Mokoena</h6>
+              <small>Director & Co-Founder</small>
+              <p style="font-size:0.85rem; color:#666; margin-top:10px; line-height:1.6;">
+                Overseeing operations and client relations, with a focus on delivering compliant, accurate financial services to every client.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="director-card">
+              <h6>Tlisetso Malemule</h6>
+              <small>Director & Co-Founder</small>
+              <p style="font-size:0.85rem; color:#666; margin-top:10px; line-height:1.6;">
+                Driving the company's bookkeeping and tax strategy, ensuring clients receive hands-on support and expert guidance.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div style="background:var(--light); border-radius:6px; padding:1.5rem; margin-top:1.5rem;">
+          <div class="row text-center g-3">
+            <div class="col-4">
+              <div style="font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--navy); font-weight:900;">VAT</div>
+              <div style="font-size:0.75rem; color:#888; text-transform:uppercase; letter-spacing:1px;">Returns</div>
+            </div>
+            <div class="col-4">
+              <div style="font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--navy); font-weight:900;">PAYE</div>
+              <div style="font-size:0.75rem; color:#888; text-transform:uppercase; letter-spacing:1px;">Payroll</div>
+            </div>
+            <div class="col-4">
+              <div style="font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--navy); font-weight:900;">SARS</div>
+              <div style="font-size:0.75rem; color:#888; text-transform:uppercase; letter-spacing:1px;">Compliant</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-6">
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-title">Request a Quote</h2>
+        <div class="divider-ct"></div>
+        <p class="section-sub">Tell us about your business and we'll recommend the right package for you.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="contact-card h-100">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div>
+              <h6>Phone</h6>
+              <p>+27 60 951 1263</p>
+              <p>+27 64 883 3476</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <h6>Email</h6>
+              <p>csmokoena11@gmail.com</p>
+              <p>tisetsoclio98@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <h6>Address</h6>
+              <p>3006 Thembelihle Street<br/>Slovo – Winterveld<br/>Pretoria, 0198</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="bi bi-building"></i></div>
+            <div>
+              <h6>Registration</h6>
+              <p>2025/230601/07</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="contact-card">
+          <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label>Full Name</label>
+                <input type="text" class="form-control" placeholder="Your name" required/>
+              </div>
+              <div class="col-md-6">
+                <label>Email Address</label>
+                <input type="email" class="form-control" placeholder="you@example.com" required/>
+              </div>
+              <div class="col-md-6">
+                <label>Phone Number</label>
+                <input type="tel" class="form-control" placeholder="+27 ..."/>
+              </div>
+              <div class="col-md-6">
+                <label>Service Needed</label>
+                <select class="form-select">
+                  <option value="">Select a service...</option>
+                  <option>Bookkeeping – Starter</option>
+                  <option>Bookkeeping – Core SME</option>
+                  <option>Bookkeeping – SME + Payroll</option>
+                  <option>VAT Return</option>
+                  <option>Payroll / PAYE</option>
+                  <option>Individual Tax Return (ITR12)</option>
+                  <option>Business Tax Return</option>
+                  <option>Books Clean-Up</option>
+                  <option>Other / Not Sure</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label>Tell Us About Your Business</label>
+                <textarea class="form-control" rows="4" placeholder="Brief description of your business and what you need help with..."></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-primary-ct w-100 justify-content-center" style="border:none; cursor:pointer; font-size:0.95rem;">
+                  Send Enquiry <i class="bi bi-send-fill"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <h5>CT Holdings & Investments</h5>
+        <p style="font-size:0.88rem; line-height:1.8; max-width:280px;">
+          Professional bookkeeping, VAT, payroll and tax services for South African businesses.
+          Reliable. Affordable. Compliant.
+        </p>
+        <div class="footer-reg mt-3">Reg. No. 2025/230601/07</div>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Bookkeeping</a></li>
+          <li><a href="#services">VAT Returns</a></li>
+          <li><a href="#services">Payroll & PAYE</a></li>
+          <li><a href="#services">Tax Returns</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+27609511263">+27 60 951 1263</a></li>
+          <li><a href="tel:+27648833476">+27 64 883 3476</a></li>
+          <li><a href="mailto:csmokoena11@gmail.com">csmokoena11@gmail.com</a></li>
+          <li style="color:rgba(255,255,255,0.4); font-size:0.85rem; margin-top:8px;">3006 Thembelihle St, Pretoria, 0198</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span>&copy; 2025 CT Holdings and Investments (Pty) Ltd. All rights reserved.</span>
+      <span class="footer-reg">Financial Year End: March</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.innerHTML = '<i class="bi bi-check-circle-fill"></i> Enquiry Sent!';
+    btn.style.background = '#2e7d32';
+    setTimeout(() => {
+      btn.innerHTML = 'Send Enquiry <i class="bi bi-send-fill"></i>';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
