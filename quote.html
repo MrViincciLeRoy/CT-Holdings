@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Get a Quote | CT Holdings & Investments</title>
-  <meta name="description" content="Request a free quote from CT Holdings & Investments. Bookkeeping, VAT returns, payroll and SARS tax submissions for South African businesses."/>
+  <title>Get a Quote | CT Holdings &amp; Investments</title>
+  <meta name="description" content="Request a free quote from CT Holdings &amp; Investments. Bookkeeping, VAT returns, payroll and SARS tax submissions for South African businesses."/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://www.ctholdings.co.za/quote.html"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -19,7 +19,7 @@
   <div class="container">
     <a class="navbar-brand" href="index.html">
       <img src="CT_Logo_2.jpg" alt="CT Holdings Logo" onerror="this.style.display='none'"/>
-      <span>CT Holdings <small>& Investments</small></span>
+      <span>CT Holdings <small>&amp; Investments</small></span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
       <span class="navbar-toggler-icon"></span>
@@ -112,7 +112,6 @@
             </div>
           </div>
 
-          <!-- Services Quick Ref -->
           <div style="background:var(--navy); border-radius:6px; padding:1.5rem; margin-top:1.5rem;">
             <div style="font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:1rem;">Our Services</div>
             <ul style="list-style:none; padding:0; margin:0;">
@@ -123,7 +122,7 @@
                 <i class="bi bi-receipt-cutoff" style="color:var(--gold); margin-right:8px;"></i> VAT Returns from R1,200
               </li>
               <li style="padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08); font-size:0.85rem; color:rgba(255,255,255,0.8);">
-                <i class="bi bi-people-fill" style="color:var(--gold); margin-right:8px;"></i> Payroll & PAYE from R4,000/month
+                <i class="bi bi-people-fill" style="color:var(--gold); margin-right:8px;"></i> Payroll &amp; PAYE from R4,000/month
               </li>
               <li style="padding:6px 0; font-size:0.85rem; color:rgba(255,255,255,0.8);">
                 <i class="bi bi-file-earmark-text-fill" style="color:var(--gold); margin-right:8px;"></i> Tax Returns from R500
@@ -143,39 +142,42 @@
 
           <div id="form-alert" style="display:none; padding:14px 18px; border-radius:6px; margin-bottom:1.5rem; font-size:0.9rem;"></div>
 
-          <form id="quote-form" class="contact-form">
+          <form id="quote-form" class="contact-form" novalidate>
 
-            <!-- Web3Forms hidden fields -->
             <input type="hidden" name="access_key" value="b11df953-dde4-4fc8-82c3-4c4a483aceb9"/>
-            <input type="hidden" name="subject" value="New Quote Request – CT Holdings & Investments"/>
+            <input type="hidden" name="subject" value="New Quote Request - CT Holdings and Investments"/>
             <input type="hidden" name="from_name" value="CT Holdings Website"/>
             <input type="checkbox" name="botcheck" style="display:none;"/>
 
             <div class="row g-3">
 
               <div class="col-md-6">
-                <label>Full Name *</label>
-                <input type="text" name="full_name" class="form-control" placeholder="Your full name" required/>
+                <label class="form-label">Full Name *</label>
+                <input type="text" name="full_name" class="form-control" placeholder="Your full name"/>
+                <div class="invalid-feedback"></div>
               </div>
 
               <div class="col-md-6">
-                <label>Email Address *</label>
-                <input type="email" name="email" class="form-control" placeholder="you@example.com" required/>
+                <label class="form-label">Email Address *</label>
+                <input type="email" name="email" class="form-control" placeholder="you@example.com"/>
+                <div class="invalid-feedback"></div>
               </div>
 
               <div class="col-md-6">
-                <label>Phone Number</label>
+                <label class="form-label">Phone Number *</label>
                 <input type="tel" name="phone" class="form-control" placeholder="+27 ..."/>
+                <div class="invalid-feedback"></div>
               </div>
 
               <div class="col-md-6">
-                <label>Business Name</label>
+                <label class="form-label">Business Name *</label>
                 <input type="text" name="business_name" class="form-control" placeholder="Your company name"/>
+                <div class="invalid-feedback"></div>
               </div>
 
               <div class="col-md-6">
-                <label>Service Needed *</label>
-                <select name="service" class="form-select" required>
+                <label class="form-label">Service Needed *</label>
+                <select name="service" class="form-select">
                   <option value="">Select a service...</option>
                   <option>Bookkeeping – Starter (R500/month)</option>
                   <option>Bookkeeping – Core SME (R1,500/month)</option>
@@ -190,10 +192,11 @@
                   <option>Multiple Services / Bundle</option>
                   <option>Not Sure – Need Advice</option>
                 </select>
+                <div class="invalid-feedback"></div>
               </div>
 
               <div class="col-md-6">
-                <label>Monthly Transactions (approx.)</label>
+                <label class="form-label">Monthly Transactions (approx.) *</label>
                 <select name="monthly_transactions" class="form-select">
                   <option value="">Select range...</option>
                   <option>Under 10</option>
@@ -202,20 +205,22 @@
                   <option>150+</option>
                   <option>Not sure</option>
                 </select>
+                <div class="invalid-feedback"></div>
               </div>
 
               <div class="col-md-6">
-                <label>Are You VAT Registered?</label>
+                <label class="form-label">Are You VAT Registered? *</label>
                 <select name="vat_registered" class="form-select">
                   <option value="">Select...</option>
                   <option>Yes</option>
                   <option>No</option>
                   <option>Not sure</option>
                 </select>
+                <div class="invalid-feedback"></div>
               </div>
 
               <div class="col-md-6">
-                <label>Number of Employees</label>
+                <label class="form-label">Number of Employees *</label>
                 <select name="employees" class="form-select">
                   <option value="">Select...</option>
                   <option>0 (Sole trader)</option>
@@ -223,15 +228,16 @@
                   <option>6 – 20</option>
                   <option>20+</option>
                 </select>
+                <div class="invalid-feedback"></div>
               </div>
 
               <div class="col-12">
-                <label>Tell Us About Your Business</label>
+                <label class="form-label">Tell Us About Your Business</label>
                 <textarea name="message" class="form-control" rows="5" placeholder="Brief description of your business, current challenges, and what you need help with..."></textarea>
               </div>
 
               <div class="col-12">
-                <label>How Did You Hear About Us?</label>
+                <label class="form-label">How Did You Hear About Us? *</label>
                 <select name="referral_source" class="form-select">
                   <option value="">Select...</option>
                   <option>Google Search</option>
@@ -239,6 +245,7 @@
                   <option>Social Media</option>
                   <option>Other</option>
                 </select>
+                <div class="invalid-feedback"></div>
               </div>
 
               <div class="col-12 mt-2">
@@ -264,7 +271,7 @@
   <div class="container">
     <div class="row g-4">
       <div class="col-lg-4">
-        <h5>CT Holdings & Investments</h5>
+        <h5>CT Holdings &amp; Investments</h5>
         <p style="font-size:0.88rem; line-height:1.8; max-width:280px;">Professional bookkeeping and SARS compliance services for South African businesses. Reliable. Affordable. Compliant.</p>
         <div class="footer-reg mt-3">Reg. No. 2025/230601/07</div>
       </div>
@@ -304,42 +311,128 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  document.getElementById('quote-form').addEventListener('submit', async function (e) {
+  var validationRules = {
+    full_name:            { label: 'Full Name' },
+    email:                { label: 'Email Address', pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, patternMsg: 'Please enter a valid email address.' },
+    phone:                { label: 'Phone Number', pattern: /^\+?[\d\s\-]{7,15}$/, patternMsg: 'Please enter a valid phone number (e.g. +27 81 234 5678).' },
+    business_name:        { label: 'Business Name' },
+    service:              { label: 'Service Needed' },
+    monthly_transactions: { label: 'Monthly Transactions' },
+    vat_registered:       { label: 'VAT Registered' },
+    employees:            { label: 'Number of Employees' },
+    referral_source:      { label: 'How Did You Hear About Us' }
+  };
+
+  function getEl(name) {
+    return document.querySelector('[name="' + name + '"]');
+  }
+
+  function setError(name, msg) {
+    var el = getEl(name);
+    if (!el) return;
+    el.classList.remove('is-valid');
+    el.classList.add('is-invalid');
+    var fb = el.parentNode.querySelector('.invalid-feedback');
+    if (fb) fb.textContent = msg;
+  }
+
+  function clearError(name) {
+    var el = getEl(name);
+    if (!el) return;
+    el.classList.remove('is-invalid');
+    el.classList.add('is-valid');
+    var fb = el.parentNode.querySelector('.invalid-feedback');
+    if (fb) fb.textContent = '';
+  }
+
+  function resetAllStyles() {
+    Object.keys(validationRules).forEach(function(name) {
+      var el = getEl(name);
+      if (el) el.classList.remove('is-invalid', 'is-valid');
+    });
+  }
+
+  function validateField(name) {
+    var rule = validationRules[name];
+    var el = getEl(name);
+    if (!el) return true;
+    var val = el.value.trim();
+    if (!val) {
+      setError(name, rule.label + ' is required.');
+      return false;
+    }
+    if (rule.pattern && !rule.pattern.test(val)) {
+      setError(name, rule.patternMsg);
+      return false;
+    }
+    clearError(name);
+    return true;
+  }
+
+  function validateAll() {
+    var allValid = true;
+    Object.keys(validationRules).forEach(function(name) {
+      if (!validateField(name)) allValid = false;
+    });
+    return allValid;
+  }
+
+  // Attach live validation listeners
+  Object.keys(validationRules).forEach(function(name) {
+    var el = getEl(name);
+    if (!el) return;
+    el.addEventListener('blur', function() { validateField(name); });
+    el.addEventListener('change', function() { validateField(name); });
+    el.addEventListener('input', function() {
+      if (el.classList.contains('is-invalid')) validateField(name);
+    });
+  });
+
+  document.getElementById('quote-form').addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    const btn = document.getElementById('submit-btn');
-    const alertBox = document.getElementById('form-alert');
+    var btn = document.getElementById('submit-btn');
+    var alertBox = document.getElementById('form-alert');
+
+    alertBox.style.display = 'none';
+
+    if (!validateAll()) {
+      alertBox.style.cssText = 'display:block; background:#f8d7da; color:#721c24; border:1px solid #f5c6cb; padding:14px 18px; border-radius:6px; margin-bottom:1.5rem; font-size:0.9rem;';
+      alertBox.innerHTML = '<i class="bi bi-exclamation-triangle-fill me-2"></i> Please fill in all required fields correctly before submitting.';
+      var firstInvalid = document.querySelector('.is-invalid');
+      if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
 
     btn.innerHTML = 'Sending... <i class="bi bi-hourglass-split"></i>';
     btn.disabled = true;
 
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
+    var formData = new FormData(this);
+    var data = Object.fromEntries(formData.entries());
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      var res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)
       });
 
-      const json = await res.json();
+      var json = await res.json();
 
       if (json.success) {
+        resetAllStyles();
         alertBox.style.cssText = 'display:block; background:#d4edda; color:#155724; border:1px solid #c3e6cb; padding:14px 18px; border-radius:6px; margin-bottom:1.5rem; font-size:0.9rem;';
         alertBox.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i> Quote submitted! We\'ll be in touch within one business day.';
         btn.innerHTML = 'Submitted! <i class="bi bi-check-circle-fill"></i>';
         btn.style.background = '#1a6b3a';
         this.reset();
+        resetAllStyles();
       } else {
         throw new Error(json.message || 'Submission failed');
       }
     } catch (err) {
       alertBox.style.cssText = 'display:block; background:#f8d7da; color:#721c24; border:1px solid #f5c6cb; padding:14px 18px; border-radius:6px; margin-bottom:1.5rem; font-size:0.9rem;';
-      alertBox.innerHTML = '<i class="bi bi-exclamation-triangle-fill me-2"></i> Something went wrong. Please email us directly at <a href="mailto:csmokoena11@gmail.com">csmokoena11@gmail.com</a>';
+      alertBox.innerHTML = '<i class="bi bi-exclamation-triangle-fill me-2"></i> Something went wrong. Please email us at <a href="mailto:csmokoena11@gmail.com">csmokoena11@gmail.com</a>';
       btn.innerHTML = 'Submit Quote Request <i class="bi bi-send-fill"></i>';
       btn.disabled = false;
       console.error('Web3Forms error:', err);
