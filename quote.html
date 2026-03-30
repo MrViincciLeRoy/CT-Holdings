@@ -11,13 +11,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
-
-  <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script>
-    // Replace with your actual EmailJS Public Key
-    emailjs.init("YOUR_PUBLIC_KEY");
-  </script>
 </head>
 <body>
 
@@ -148,10 +141,16 @@
           <div class="divider-ct"></div>
           <p style="color:#777; font-size:0.9rem; margin-bottom:2rem; margin-top:0.5rem;">We typically respond within one business day.</p>
 
-          <!-- Alert box for feedback -->
           <div id="form-alert" style="display:none; padding:14px 18px; border-radius:6px; margin-bottom:1.5rem; font-size:0.9rem;"></div>
 
           <form id="quote-form" class="contact-form">
+
+            <!-- Web3Forms hidden fields -->
+            <input type="hidden" name="access_key" value="b11df953-dde4-4fc8-82c3-4c4a483aceb9"/>
+            <input type="hidden" name="subject" value="New Quote Request – CT Holdings & Investments"/>
+            <input type="hidden" name="from_name" value="CT Holdings Website"/>
+            <input type="checkbox" name="botcheck" style="display:none;"/>
+
             <div class="row g-3">
 
               <div class="col-md-6">
@@ -305,50 +304,46 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  document.getElementById('quote-form').addEventListener('submit', function (e) {
+  document.getElementById('quote-form').addEventListener('submit', async function (e) {
     e.preventDefault();
 
     const btn = document.getElementById('submit-btn');
-    const alert = document.getElementById('form-alert');
+    const alertBox = document.getElementById('form-alert');
 
     btn.innerHTML = 'Sending... <i class="bi bi-hourglass-split"></i>';
     btn.disabled = true;
 
-    const templateParams = {
-      full_name:            this.full_name.value,
-      email:                this.email.value,
-      phone:                this.phone.value || 'Not provided',
-      business_name:        this.business_name.value || 'Not provided',
-      service:              this.service.value,
-      monthly_transactions: this.monthly_transactions.value || 'Not specified',
-      vat_registered:       this.vat_registered.value || 'Not specified',
-      employees:            this.employees.value || 'Not specified',
-      message:              this.message.value || 'No message provided',
-      referral_source:      this.referral_source.value || 'Not specified',
-    };
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
 
-    // Replace YOUR_SERVICE_ID and YOUR_TEMPLATE_ID with your actual EmailJS IDs
-    emailjs.send('YOUR_SERVICE_ID', 'b11df953-dde4-4fc8-82c3-4c4a483aceb9', templateParams)
-      .then(() => {
-        alert.style.display = 'block';
-        alert.style.background = '#d4edda';
-        alert.style.color = '#155724';
-        alert.style.border = '1px solid #c3e6cb';
-        alert.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i> Quote submitted! We\'ll be in touch within one business day.';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      const json = await res.json();
+
+      if (json.success) {
+        alertBox.style.cssText = 'display:block; background:#d4edda; color:#155724; border:1px solid #c3e6cb; padding:14px 18px; border-radius:6px; margin-bottom:1.5rem; font-size:0.9rem;';
+        alertBox.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i> Quote submitted! We\'ll be in touch within one business day.';
         btn.innerHTML = 'Submitted! <i class="bi bi-check-circle-fill"></i>';
         btn.style.background = '#1a6b3a';
-        document.getElementById('quote-form').reset();
-      })
-      .catch((error) => {
-        alert.style.display = 'block';
-        alert.style.background = '#f8d7da';
-        alert.style.color = '#721c24';
-        alert.style.border = '1px solid #f5c6cb';
-        alert.innerHTML = '<i class="bi bi-exclamation-triangle-fill me-2"></i> Something went wrong. Please email us directly at <a href="mailto:mmehgoss@gmail.com">mmehgoss@gmail.com</a>';
-        btn.innerHTML = 'Submit Quote Request <i class="bi bi-send-fill"></i>';
-        btn.disabled = false;
-        console.error('EmailJS error:', error);
-      });
+        this.reset();
+      } else {
+        throw new Error(json.message || 'Submission failed');
+      }
+    } catch (err) {
+      alertBox.style.cssText = 'display:block; background:#f8d7da; color:#721c24; border:1px solid #f5c6cb; padding:14px 18px; border-radius:6px; margin-bottom:1.5rem; font-size:0.9rem;';
+      alertBox.innerHTML = '<i class="bi bi-exclamation-triangle-fill me-2"></i> Something went wrong. Please email us directly at <a href="mailto:csmokoena11@gmail.com">csmokoena11@gmail.com</a>';
+      btn.innerHTML = 'Submit Quote Request <i class="bi bi-send-fill"></i>';
+      btn.disabled = false;
+      console.error('Web3Forms error:', err);
+    }
   });
 </script>
 </body>
