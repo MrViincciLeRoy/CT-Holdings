@@ -11,6 +11,13 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // Replace with your actual EmailJS Public Key
+    emailjs.init("YOUR_PUBLIC_KEY");
+  </script>
 </head>
 <body>
 
@@ -141,32 +148,35 @@
           <div class="divider-ct"></div>
           <p style="color:#777; font-size:0.9rem; margin-bottom:2rem; margin-top:0.5rem;">We typically respond within one business day.</p>
 
-          <form class="contact-form" onsubmit="handleSubmit(event)">
+          <!-- Alert box for feedback -->
+          <div id="form-alert" style="display:none; padding:14px 18px; border-radius:6px; margin-bottom:1.5rem; font-size:0.9rem;"></div>
+
+          <form id="quote-form" class="contact-form">
             <div class="row g-3">
 
               <div class="col-md-6">
                 <label>Full Name *</label>
-                <input type="text" class="form-control" placeholder="Your full name" required/>
+                <input type="text" name="full_name" class="form-control" placeholder="Your full name" required/>
               </div>
 
               <div class="col-md-6">
                 <label>Email Address *</label>
-                <input type="email" class="form-control" placeholder="you@example.com" required/>
+                <input type="email" name="email" class="form-control" placeholder="you@example.com" required/>
               </div>
 
               <div class="col-md-6">
                 <label>Phone Number</label>
-                <input type="tel" class="form-control" placeholder="+27 ..."/>
+                <input type="tel" name="phone" class="form-control" placeholder="+27 ..."/>
               </div>
 
               <div class="col-md-6">
                 <label>Business Name</label>
-                <input type="text" class="form-control" placeholder="Your company name"/>
+                <input type="text" name="business_name" class="form-control" placeholder="Your company name"/>
               </div>
 
               <div class="col-md-6">
                 <label>Service Needed *</label>
-                <select class="form-select" required>
+                <select name="service" class="form-select" required>
                   <option value="">Select a service...</option>
                   <option>Bookkeeping – Starter (R500/month)</option>
                   <option>Bookkeeping – Core SME (R1,500/month)</option>
@@ -185,7 +195,7 @@
 
               <div class="col-md-6">
                 <label>Monthly Transactions (approx.)</label>
-                <select class="form-select">
+                <select name="monthly_transactions" class="form-select">
                   <option value="">Select range...</option>
                   <option>Under 10</option>
                   <option>10 – 59</option>
@@ -197,7 +207,7 @@
 
               <div class="col-md-6">
                 <label>Are You VAT Registered?</label>
-                <select class="form-select">
+                <select name="vat_registered" class="form-select">
                   <option value="">Select...</option>
                   <option>Yes</option>
                   <option>No</option>
@@ -207,7 +217,7 @@
 
               <div class="col-md-6">
                 <label>Number of Employees</label>
-                <select class="form-select">
+                <select name="employees" class="form-select">
                   <option value="">Select...</option>
                   <option>0 (Sole trader)</option>
                   <option>1 – 5</option>
@@ -218,12 +228,12 @@
 
               <div class="col-12">
                 <label>Tell Us About Your Business</label>
-                <textarea class="form-control" rows="5" placeholder="Brief description of your business, current challenges, and what you need help with..."></textarea>
+                <textarea name="message" class="form-control" rows="5" placeholder="Brief description of your business, current challenges, and what you need help with..."></textarea>
               </div>
 
               <div class="col-12">
                 <label>How Did You Hear About Us?</label>
-                <select class="form-select">
+                <select name="referral_source" class="form-select">
                   <option value="">Select...</option>
                   <option>Google Search</option>
                   <option>Referral / Word of Mouth</option>
@@ -233,7 +243,7 @@
               </div>
 
               <div class="col-12 mt-2">
-                <button type="submit" class="btn-primary-ct w-100 justify-content-center" style="border:none; cursor:pointer; font-size:0.95rem; padding:16px;">
+                <button id="submit-btn" type="submit" class="btn-primary-ct w-100 justify-content-center" style="border:none; cursor:pointer; font-size:0.95rem; padding:16px;">
                   Submit Quote Request <i class="bi bi-send-fill"></i>
                 </button>
                 <p style="font-size:0.78rem; color:#aaa; text-align:center; margin-top:0.75rem; margin-bottom:0;">
@@ -295,13 +305,51 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  function handleSubmit(e) {
+  document.getElementById('quote-form').addEventListener('submit', function (e) {
     e.preventDefault();
-    const btn = e.target.querySelector('button[type="submit"]');
-    btn.innerHTML = 'Submitted! We\'ll be in touch. <i class="bi bi-check-circle-fill"></i>';
-    btn.style.background = '#1a6b3a';
+
+    const btn = document.getElementById('submit-btn');
+    const alert = document.getElementById('form-alert');
+
+    btn.innerHTML = 'Sending... <i class="bi bi-hourglass-split"></i>';
     btn.disabled = true;
-  }
+
+    const templateParams = {
+      full_name:            this.full_name.value,
+      email:                this.email.value,
+      phone:                this.phone.value || 'Not provided',
+      business_name:        this.business_name.value || 'Not provided',
+      service:              this.service.value,
+      monthly_transactions: this.monthly_transactions.value || 'Not specified',
+      vat_registered:       this.vat_registered.value || 'Not specified',
+      employees:            this.employees.value || 'Not specified',
+      message:              this.message.value || 'No message provided',
+      referral_source:      this.referral_source.value || 'Not specified',
+    };
+
+    // Replace YOUR_SERVICE_ID and YOUR_TEMPLATE_ID with your actual EmailJS IDs
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+      .then(() => {
+        alert.style.display = 'block';
+        alert.style.background = '#d4edda';
+        alert.style.color = '#155724';
+        alert.style.border = '1px solid #c3e6cb';
+        alert.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i> Quote submitted! We\'ll be in touch within one business day.';
+        btn.innerHTML = 'Submitted! <i class="bi bi-check-circle-fill"></i>';
+        btn.style.background = '#1a6b3a';
+        document.getElementById('quote-form').reset();
+      })
+      .catch((error) => {
+        alert.style.display = 'block';
+        alert.style.background = '#f8d7da';
+        alert.style.color = '#721c24';
+        alert.style.border = '1px solid #f5c6cb';
+        alert.innerHTML = '<i class="bi bi-exclamation-triangle-fill me-2"></i> Something went wrong. Please email us directly at <a href="mailto:mmehgoss@gmail.com">mmehgoss@gmail.com</a>';
+        btn.innerHTML = 'Submit Quote Request <i class="bi bi-send-fill"></i>';
+        btn.disabled = false;
+        console.error('EmailJS error:', error);
+      });
+  });
 </script>
 </body>
 </html>
