@@ -1,889 +1,488 @@
 <!DOCTYPE html>
-<html lang="en-ZA">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CT Holdings & Investments | Bookkeeping, VAT & Tax Services South Africa</title>
-  <meta name="description" content="CT Holdings & Investments offers professional bookkeeping, VAT returns, PAYE payroll and SARS tax submissions for small and medium businesses across South Africa. Affordable, compliant and reliable. From R500/month."/>
-  <meta name="keywords" content="bookkeeper South Africa, bookkeeping services nationwide, VAT returns South Africa, PAYE payroll services, SARS tax submissions, small business accountant South Africa, affordable bookkeeping South Africa, EMP201 submissions, ITR12 tax return, management accounts South Africa, SME bookkeeping, bookkeeper Pretoria, bookkeeper Gauteng"/>
-  <meta name="author" content="CT Holdings and Investments (Pty) Ltd"/>
-  <meta name="robots" content="index, follow"/>
-  <link rel="canonical" href="https://www.ctholdings.co.za/"/>
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://www.ctholdings.co.za/"/>
-  <meta property="og:title" content="CT Holdings & Investments | Bookkeeping, VAT & Tax Services South Africa"/>
-  <meta property="og:description" content="Professional bookkeeping, VAT, PAYE payroll and SARS tax services for South African SMEs nationwide. Registered CIPC company. Affordable monthly packages from R500."/>
-  <meta property="og:image" content="https://www.ctholdings.co.za/CT_Logo_2.jpg"/>
-  <meta property="og:locale" content="en_ZA"/>
-  <meta property="og:site_name" content="CT Holdings & Investments"/>
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="CT Holdings & Investments | Bookkeeping & Tax Services South Africa"/>
-  <meta name="twitter:description" content="Affordable bookkeeping, VAT returns and SARS submissions for small businesses across South Africa. From R500/month."/>
-  <meta name="twitter:image" content="https://www.ctholdings.co.za/CT_Logo_2.jpg"/>
-
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AccountingService",
-    "name": "CT Holdings and Investments (Pty) Ltd",
-    "alternateName": "CT Holdings & Investments",
-    "url": "https://www.ctholdings.co.za",
-    "logo": "https://www.ctholdings.co.za/CT_Logo_2.jpg",
-    "image": "https://www.ctholdings.co.za/CT_Logo_2.jpg",
-    "description": "Professional bookkeeping, VAT returns, PAYE payroll and SARS tax submissions for small and medium businesses across South Africa.",
-    "telephone": ["+27609511263", "+27648833476"],
-    "email": "csmokoena11@gmail.com",
-    "foundingDate": "2025-03-17",
-    "identifier": "2025/230601/07",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "3006 Thembelihle Street, Slovo - Winterveld",
-      "addressLocality": "Pretoria",
-      "addressRegion": "Gauteng",
-      "postalCode": "0198",
-      "addressCountry": "ZA"
-    },
-    "geo": { "@type": "GeoCoordinates", "latitude": -25.5487, "longitude": 28.0803 },
-    "areaServed": { "@type": "Country", "name": "South Africa" },
-    "serviceType": ["Bookkeeping", "VAT Returns", "PAYE Payroll", "Tax Returns", "SARS Submissions"],
-    "priceRange": "R500 - R8000+",
-    "currenciesAccepted": "ZAR",
-    "openingHours": "Mo-Fr 08:00-17:00",
-    "sameAs": [],
-    "director": [
-      { "@type": "Person", "name": "Charlie Mokoena", "telephone": "+27609511263", "email": "csmokoena11@gmail.com" },
-      { "@type": "Person", "name": "Tlisetso Malemule", "telephone": "+27648833476", "email": "tisetsoclio98@gmail.com" }
-    ]
-  }
-  </script>
-
-  <!-- FAQ Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How much does bookkeeping cost in South Africa?",
-        "acceptedAnswer": { "@type": "Answer", "text": "CT Holdings offers bookkeeping from R500/month for very small businesses with 10–59 transactions. Core SME packages start at R1,500/month for VAT-registered businesses." }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you handle SARS VAT returns?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We prepare, reconcile and submit VAT returns to SARS via eFiling. Standard VAT returns from R1,200 and complex returns from R1,600." }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you do payroll and PAYE submissions?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We process monthly payroll, issue payslips, submit EMP201 returns and handle annual IRP5/IT3(a) reconciliations." }
-      }
-    ]
-  }
-  </script>
-
-  <link rel="icon" type="image/jpeg" href="CT_Logo_2.jpg"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
-
+  <title>SEMBLANCE — Architecture v9</title>
   <style>
-    /* ── TESTIMONIALS ── */
-    .testimonials-section { background: var(--light); }
-    .testimonial-card {
-      background: var(--white);
-      border-radius: 8px;
-      padding: 2rem;
-      height: 100%;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-      border-left: 3px solid var(--red);
-      position: relative;
-    }
-    .testimonial-card .quote-mark {
-      font-family: 'Playfair Display', serif;
-      font-size: 4rem;
-      color: var(--red);
-      opacity: 0.15;
-      line-height: 1;
-      position: absolute;
-      top: 1rem; right: 1.5rem;
-    }
-    .testimonial-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 0.75rem; letter-spacing: 1px; }
-    .testimonial-text { font-size: 0.92rem; color: #444; line-height: 1.8; margin-bottom: 1.25rem; font-style: italic; }
-    .testimonial-author { font-size: 0.82rem; font-weight: 700; color: var(--navy); }
-    .testimonial-role { font-size: 0.76rem; color: #999; text-transform: uppercase; letter-spacing: 1px; }
-
-    /* ── TRUST BAR ── */
-    .trust-bar {
-      background: var(--white);
-      border-top: 1px solid #eee;
-      border-bottom: 1px solid #eee;
-      padding: 20px 0;
-    }
-    .trust-bar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2.5rem;
-      flex-wrap: wrap;
-    }
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.82rem;
-      color: #666;
-      font-weight: 500;
-    }
-    .trust-item i { color: var(--red); font-size: 1rem; }
-
-    /* ── WHATSAPP BUTTON ── */
-    .wa-fab {
-      position: fixed;
-      bottom: 90px;
-      right: 24px;
-      width: 56px; height: 56px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: white;
-      font-size: 1.6rem;
-      text-decoration: none;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-      z-index: 900;
-      transition: transform 0.2s, box-shadow 0.2s;
-      animation: waPulse 2.5s ease infinite;
-    }
-    .wa-fab:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 28px rgba(37,211,102,0.55);
-      color: white;
-    }
-    @keyframes waPulse {
-      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
-      50% { box-shadow: 0 4px 32px rgba(37,211,102,0.7); }
-    }
-    .wa-tooltip {
-      position: fixed;
-      bottom: 100px;
-      right: 88px;
-      background: var(--navy);
-      color: var(--white);
-      font-size: 0.78rem;
-      padding: 6px 12px;
-      border-radius: 4px;
-      white-space: nowrap;
-      z-index: 900;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-    .wa-fab:hover + .wa-tooltip { opacity: 1; }
-
-    /* ── AI CHAT WIDGET ── */
-    .ai-fab {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 56px; height: 56px;
-      background: var(--navy);
-      border: 2px solid var(--gold);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold);
-      font-size: 1.4rem;
-      cursor: pointer;
-      box-shadow: 0 4px 20px rgba(13,27,62,0.5);
-      z-index: 1000;
-      transition: transform 0.2s, background 0.2s;
-    }
-    .ai-fab:hover { transform: scale(1.08); background: #162245; }
-
-    .ai-chat-panel {
-      position: fixed;
-      bottom: 92px;
-      right: 24px;
-      width: 360px;
-      max-height: 520px;
-      background: var(--navy);
-      border: 1px solid rgba(201,168,76,0.25);
-      border-radius: 14px;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      z-index: 999;
-      transform: scale(0.9) translateY(16px);
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
-    }
-    .ai-chat-panel.open {
-      transform: scale(1) translateY(0);
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .ai-panel-header {
-      background: rgba(201,168,76,0.08);
-      border-bottom: 1px solid rgba(201,168,76,0.15);
-      padding: 1rem 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .ai-avatar {
-      width: 36px; height: 36px;
-      background: var(--red);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.95rem;
-      color: white;
-      flex-shrink: 0;
-    }
-    .ai-panel-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--white); }
-    .ai-panel-sub { font-size: 0.72rem; color: var(--gold); }
-    .ai-panel-close {
-      margin-left: auto;
-      background: none;
-      border: none;
-      color: rgba(255,255,255,0.4);
-      cursor: pointer;
-      font-size: 1.1rem;
-      padding: 0;
-      transition: color 0.2s;
-    }
-    .ai-panel-close:hover { color: var(--white); }
-
-    .ai-messages {
-      flex: 1;
-      overflow-y: auto;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(255,255,255,0.1) transparent;
-    }
-
-    .ai-msg {
-      max-width: 85%;
-      padding: 0.7rem 1rem;
-      border-radius: 10px;
-      font-size: 0.87rem;
-      line-height: 1.55;
-      animation: msgIn 0.25s ease both;
-    }
-    @keyframes msgIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .ai-msg.bot {
-      background: rgba(255,255,255,0.07);
-      color: rgba(255,255,255,0.88);
-      border-bottom-left-radius: 3px;
-      align-self: flex-start;
-    }
-    .ai-msg.user {
-      background: var(--red);
-      color: var(--white);
-      border-bottom-right-radius: 3px;
-      align-self: flex-end;
-    }
-    .ai-msg.typing {
-      background: rgba(255,255,255,0.07);
-      align-self: flex-start;
-      color: rgba(255,255,255,0.5);
-      font-style: italic;
-    }
-
-    .ai-input-row {
-      padding: 0.75rem 1rem;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      display: flex;
-      gap: 8px;
-    }
-    .ai-input {
-      flex: 1;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 8px;
-      padding: 9px 12px;
-      color: var(--white);
-      font-size: 0.85rem;
-      font-family: 'DM Sans', sans-serif;
-      outline: none;
-      resize: none;
-      line-height: 1.4;
-    }
-    .ai-input:focus { border-color: var(--gold); }
-    .ai-input::placeholder { color: rgba(255,255,255,0.3); }
-    .ai-send {
-      background: var(--red);
-      border: none;
-      border-radius: 8px;
-      width: 38px;
-      color: white;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: background 0.2s;
-      flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .ai-send:hover { background: var(--red-bright); }
-    .ai-send:disabled { opacity: 0.4; cursor: not-allowed; }
-
-    .ai-disclaimer {
-      font-size: 0.68rem;
-      color: rgba(255,255,255,0.25);
-      text-align: center;
-      padding: 0 1rem 0.6rem;
-    }
-
-    @media (max-width: 480px) {
-      .ai-chat-panel { width: calc(100vw - 24px); right: 12px; }
-      .ai-fab, .wa-fab { right: 16px; }
-      .wa-fab { bottom: 82px; }
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #050a0f; }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
 </head>
 <body>
+  <div id="root"></div>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img src="CT_Logo_2.jpg" alt="CT Holdings & Investments Logo" onerror="this.style.display='none'"/>
-      <span>CT Holdings <small>& Investments</small></span>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="services.html" role="button" data-bs-toggle="dropdown">Services</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="services/bookkeeping.html">Bookkeeping</a></li>
-            <li><a class="dropdown-item" href="services/sars-submissions.html">SARS Submissions</a></li>
-            <li><a class="dropdown-item" href="services/payroll.html">Payroll</a></li>
-            <li><a class="dropdown-item" href="services/tax-returns.html">Tax Returns</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link btn-nav-cta ms-2" href="quote.html">Get a Quote</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  <script type="text/babel">
+    const { useState, useCallback } = React;
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-diagonal"></div>
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-7 hero-content">
-        <div class="hero-badge fade-up">Registered · CIPC 2025/230601/07</div>
-        <h1 class="fade-up delay-1">
-          Reliable Bookkeeping<br/>
-          & <em>Financial Compliance</em><br/>
-          for South African Businesses
-        </h1>
-        <p class="fade-up delay-2">
-          CT Holdings & Investments delivers professional bookkeeping and full SARS compliance — VAT returns,
-          PAYE payroll and annual tax submissions — helping small and medium businesses across South Africa
-          stay organised and financially healthy.
-        </p>
-        <div class="d-flex flex-wrap gap-3 fade-up delay-3">
-          <a href="#pricing" class="btn-primary-ct">View Packages <i class="bi bi-arrow-right"></i></a>
-          <a href="quote.html" class="btn-outline-ct"><i class="bi bi-chat-dots"></i> Get a Quote</a>
-        </div>
-        <div class="hero-stats fade-up delay-3">
-          <div>
-            <div class="hero-stat-num">Mgmt</div>
-            <div class="hero-stat-label">Management Accounts</div>
-          </div>
-          <div>
-            <div class="hero-stat-num">SARS</div>
-            <div class="hero-stat-label">VAT, PAYE & Tax</div>
-          </div>
-          <div>
-            <div class="hero-stat-num">SMEs</div>
-            <div class="hero-stat-label">Our Focus</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    // ─── Color palette ────────────────────────────────────────────────────────────
+    const COLOR = {
+      interface:  "#00f5ff",
+      infra:      "#a78bfa",
+      tau:        "#ff6b6b",
+      core:       "#ffd700",
+      pipeline:   "#f97316",
+      cache:      "#e879f9",
+      memory:     "#38bdf8",
+      agent:      "#06b6d4",
+      tools:      "#10b981",
+      webtools:   "#34d399",
+      misc:       "#f59e0b",
+      storage:    "#6366f1",
+      undercover: "#64748b",
+      llm:        "#94a3b8",
+    };
 
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="container">
-    <div class="trust-bar-inner">
-      <div class="trust-item"><i class="bi bi-shield-check-fill"></i> CIPC Registered Company</div>
-      <div class="trust-item"><i class="bi bi-check-circle-fill"></i> SARS eFiling Compliant</div>
-      <div class="trust-item"><i class="bi bi-lock-fill"></i> POPIA Compliant</div>
-      <div class="trust-item"><i class="bi bi-telephone-fill"></i> Direct Director Access</div>
-      <div class="trust-item"><i class="bi bi-currency-exchange"></i> No Hidden Fees</div>
-    </div>
-  </div>
-</div>
+    const GROUP_LABEL = {
+      interface:  "Interface",
+      infra:      "Infrastructure",
+      tau:        "TAU Layer",
+      core:       "CABLES MAN Core",
+      pipeline:   "7-Step Pipeline",
+      cache:      "Cache Layer",
+      memory:     "Memory",
+      agent:      "Agents",
+      tools:      "TOOLS Registry",
+      webtools:   "Web Tools",
+      misc:       "Misc Tools",
+      storage:    "Storage Layer",
+      undercover: "UNDERCOVER",
+      llm:        "External APIs",
+    };
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="container">
-    <div class="row mb-5">
-      <div class="col-lg-6">
-        <div class="section-label">What We Do</div>
-        <h2 class="section-title">Professional Financial Services</h2>
-        <div class="divider-ct"></div>
-        <p class="section-sub">From day-to-day bookkeeping to annual tax returns, we handle the numbers so you can focus on running your business.</p>
-        <a href="services.html" class="btn-primary-ct mt-4">View All Services <i class="bi bi-arrow-right"></i></a>
-      </div>
-    </div>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-3">
-        <a href="services/bookkeeping.html" class="service-card">
-          <div class="service-icon"><i class="bi bi-journal-bookmark-fill"></i></div>
-          <h5>Bookkeeping</h5>
-          <p>Monthly bank reconciliation, P&L summaries and balance sheets — keeping your records clean and audit-ready.</p>
-          <span class="service-link">Learn more <i class="bi bi-arrow-right"></i></span>
-        </a>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <a href="services/sars-submissions.html" class="service-card">
-          <div class="service-icon"><i class="bi bi-receipt-cutoff"></i></div>
-          <h5>VAT Returns</h5>
-          <p>Preparation, reconciliation and SARS submission of standard and complex VAT returns, handled correctly every period.</p>
-          <span class="service-link">Learn more <i class="bi bi-arrow-right"></i></span>
-        </a>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <a href="services/payroll.html" class="service-card">
-          <div class="service-icon"><i class="bi bi-people-fill"></i></div>
-          <h5>Payroll & PAYE</h5>
-          <p>Monthly payroll processing, payslips, EMP201 submissions and annual IRP5/IT3(a) reconciliation for your team.</p>
-          <span class="service-link">Learn more <i class="bi bi-arrow-right"></i></span>
-        </a>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <a href="services/tax-returns.html" class="service-card">
-          <div class="service-icon"><i class="bi bi-file-earmark-text-fill"></i></div>
-          <h5>Tax Returns</h5>
-          <p>Individual ITR12, basic and complex business tax returns prepared and submitted accurately to SARS.</p>
-          <span class="service-link">Learn more <i class="bi bi-arrow-right"></i></span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+    // ─── Node definitions ─────────────────────────────────────────────────────────
+    const NODES = {
+      ui:         { label:"SEMBLANCE UI",    sublabel:"React Frontend",               group:"interface",  col:5,  row:0, desc:"Chat, voice, status, real-time agent activity feed. The face of Semblance." },
+      voice:      { label:"VOICE INPUT",     sublabel:"Sensory Layer",                group:"interface",  col:7,  row:0, desc:"Microphone + screen awareness. Bridges physical world into Semblance." },
+      gateway:    { label:"FastAPI GATEWAY", sublabel:"Render — Free",                group:"infra",      col:6,  row:1, desc:"Single HTTP entry. Auth, task queuing, response streaming to UI." },
+      tau:        { label:"TAU",             sublabel:"Adaptive Identity Engine",     group:"tau",        col:1,  row:2, desc:"Separate autonomous layer. Observes, learns, builds a model of YOU specifically. Feeds context into CABLES MAN." },
+      semret:     { label:"SEM RETRIEVAL",   sublabel:"Step 3b — Cosine · Top-K",    group:"memory",     col:3,  row:2, desc:"Semantic Memory Retrieval. Replaces topic-pointer lookup. Queries ChromaDB by cosine similarity — surfaces memories by meaning, not filename. Returns top-K relevant memories ranked by semantic closeness. Nothing is discarded." },
+      bootstrap:  { label:"BOOTSTRAP",       sublabel:"Step 1 — 7-Stage Init",       group:"pipeline",   col:5,  row:2, desc:"Prefetch → safety → CLI parse/trust gate → tool loading → deferred init → mode routing → query engine handoff." },
+      ctxassem:   { label:"CTX ASSEMBLY",    sublabel:"Step 2 — SEMBLANCE.md",       group:"pipeline",   col:6,  row:2, desc:"Loads SEMBLANCE.md hierarchy (global → user → project → local) every turn. 40k char limit." },
+      memload:    { label:"MEMORY LOAD",     sublabel:"Step 3 — Delegates to SEM",   group:"pipeline",   col:7,  row:2, desc:"Memory retrieval coordinator. Delegates semantic lookup to SEM RETRIEVAL (ChromaDB cosine) and raw records to Aiven MySQL. Topic index fallback. Transcripts grepped, never fully loaded. Infinite retention." },
+      queryeng:   { label:"QUERY ENGINE",    sublabel:"Step 4 — 14 Cache Vectors",   group:"pipeline",   col:8,  row:2, desc:"All LLM calls, streaming, caching. Tracks 14 cache-break vectors. CONNECTOR_TEXT buffers reasoning between tool calls with cryptographically signed summaries. Feeds Cache Layer before every API call." },
+      toolexec:   { label:"TOOL EXECUTION",  sublabel:"Step 5 — 3 Modes",            group:"pipeline",   col:9,  row:2, desc:"3 permission modes: Bypass (trusted env, no confirmation), Allow Edits (confirm writes), Auto (LLM classifier gates every call)." },
+      ctxpress:   { label:"CTX PRESSURE",    sublabel:"Step 6 — 5 Strategies",       group:"pipeline",   col:10, row:2, desc:"5 compaction strategies: budgeting → microcompact → collapse → autocompact → prune+index. 13k buffer, 20k summary target, 3-failure circuit breaker." },
+      subdeleg:   { label:"SUB-AGENT DELEG", sublabel:"Step 7 — Fork/Teammate/Worktree", group:"pipeline", col:11, row:2, desc:"3 execution models: Fork (cache-optimized parallel), Teammate (file mailbox coordination), Worktree (isolated git branch)." },
+      taucache:   { label:"TAU CACHE",       sublabel:"Identity · Profile · EMUs",   group:"cache",      col:1,  row:3, desc:"Dedicated cache for TAU. Stores: PACIFIC OCEAN traits, Emotion Memory Units (EMUs), personality snapshots, DREAM consolidation results. TTL: 1hr for profile, rolling for EMUs. Prevents re-inference every turn." },
+      salience:   { label:"SALIENCE ENGINE", sublabel:"EMU Weight · Encode Priority", group:"memory",    col:3,  row:3, desc:"Scores every memory candidate before persistence. Combines NATURE SCI EMU weights + surprise delta from QUERY ENGINE. High salience = encoded to ChromaDB + MySQL first. Nothing deleted — salience controls priority and retrieval ranking only." },
+      cachesys:   { label:"SYS CACHE",       sublabel:"Tools · System · 5min/1hr",   group:"cache",      col:5,  row:3, desc:"Caches SEMBLANCE.md system prompt + TOOLS registry. Write = 1.25× base cost (5-min TTL) or 2× (1-hr TTL). Read = 0.10× base cost. KV in-memory only. Breakpoint placed on last static block." },
+      cacheconv:  { label:"CONV CACHE",      sublabel:"Auto-managed · Rolling",       group:"cache",      col:7,  row:3, desc:"Rolling conversation cache. Auto-advances breakpoint as conversation grows (up to 20-block lookback). Each turn appends without invalidating the prior cached prefix. Up to 4 breakpoints per request." },
+      cachektrl:  { label:"CACHE CTRL",      sublabel:"Hash Tracker · TTL Manager",  group:"cache",      col:9,  row:3, desc:"Cryptographic prefix hash as cache key. Tracks all 14 break vectors: tool changes, model switches, image additions, system prompt edits. Manages TTL refresh. Cache miss triggers fresh write at 1.25× cost." },
+      workingmem: { label:"WORKING MEM",     sublabel:"Cross-turn Scratchpad",        group:"memory",     col:11, row:3, desc:"Active reasoning buffer persisting across multiple turns on the same problem. Fed by QUERY ENGINE, read by CABLES MAN. Cleared only when the problem is resolved — not per-turn." },
+      usermodel:  { label:"USER MODEL",      sublabel:"Model of You",                 group:"tau",        col:0,  row:4, desc:"Structured profile — habits, preferences, schedule, goals. The TAU differentiator. Refined continuously by DREAM." },
+      memory:     { label:"MEMORY",          sublabel:"Persistent Store",             group:"tau",        col:1,  row:4, desc:"Long-term memory across all sessions. Past conversations, learned facts, decisions. Stored in Aiven MySQL." },
+      identity:   { label:"IDENTITY",        sublabel:"Personality & Self-Model",     group:"tau",        col:2,  row:4, desc:"Consistent character. Knows what it is and what it can do. Stable across sessions." },
+      pacific:    { label:"PACIFIC",         sublabel:"OCEAN Identity Engine",        group:"tau",        col:3,  row:4, desc:"Preference Alignment Choices Inference for Five-factor Identity Characterization. Big Five (OCEAN) model. Improves personalization 29.25% → 76% from implicit conversation signals. Fed by TAU memory and DREAM." },
+      cableman:   { label:"CABLES MAN",      sublabel:"Multi-Agent Orchestrator",     group:"core",       col:6,  row:4, desc:"Coordinated Autonomous Background Learning Execution System — Multi Agent Network. Pure orchestration. Zero direct API calls — all external access through TOOLS." },
+      naturesci:  { label:"NATURE SCI",      sublabel:"Emotional Processor",          group:"core",       col:7,  row:4, desc:"Multimodal Emotional Intelligence. Ensemble: BERT (92% text sentiment) + RNN (89% sequential tracking) + CNN (80% facial) + GAN (90% emotional content generation). Nature Scientific Reports 2026. Modulates all agent responses." },
+      undercover: { label:"UNDERCOVER",      sublabel:"Stealth Execution",            group:"undercover", col:12, row:4, desc:"Stealth mode. Strips AI attribution. 'Do not blow your cover.' Force-ON env var only — no force-OFF. One-way door." },
+      kairos:     { label:"KAIROS",          sublabel:"15s Budget · 3 Excl. Tools",  group:"agent",      col:0,  row:5, desc:"Always-on daemon. Periodic tick prompts, decides independently. 15-second blocking budget per tick. 3 EXCLUSIVE tools: push notifications, file delivery, PR subscriptions. Append-only audit logs." },
+      ultraplan:  { label:"ULTRAPLAN",       sublabel:"30min · Browser Approval",    group:"agent",      col:1,  row:5, desc:"Remote DeepSeek-R1. Up to 30-minute planning window. Polls every 3s. Browser approval gate before execution." },
+      coord:      { label:"COORDINATOR",     sublabel:"XML · Shared Scratchpad",     group:"agent",      col:2,  row:5, desc:"Spawns parallel workers via XML messages. Shared scratchpad. Hardcoded ban on lazy delegation." },
+      dream:      { label:"DREAM",           sublabel:"3-Gate · 4-Phase · No Prune", group:"agent",      col:3,  row:5, desc:"3-gate trigger: 24hr + 5 sessions + lock. 4 phases: Orient → Gather → Consolidate → Index. Scores memories via SALIENCE ENGINE, writes embeddings to ChromaDB, updates MEMORY.md index. Nothing pruned — ever." },
+      proactive:  { label:"PROACTIVE",       sublabel:"KAIROS-driven Outreach",      group:"agent",      col:4,  row:5, desc:"Semblance initiates contact — alerts, suggestions, reminders without being asked. Driven by KAIROS tick." },
+      explore:    { label:"EXPLORE",         sublabel:"Fast Search Subagent",        group:"agent",      col:5,  row:5, desc:"Fast knowledge/codebase search. Spawned via AgentTool — first-class registry citizen." },
+      plan:       { label:"PLAN AGENT",      sublabel:"Pre-execution Strategy",      group:"agent",      col:6,  row:5, desc:"Designs strategy before any action. Prevents sloppy execution. Spawned via AgentTool." },
+      general:    { label:"GENERAL AGENT",   sublabel:"Complex Multi-step",          group:"agent",      col:7,  row:5, desc:"Handles complex multi-step tasks end-to-end. The workhorse of CABLES MAN." },
+      guide:      { label:"GUIDE AGENT",     sublabel:"Self-knowledge",              group:"agent",      col:8,  row:5, desc:"Answers questions about Semblance itself — capabilities, current state." },
+      swarm:      { label:"SWARM",           sublabel:"AsyncLocalStorage Isolation", group:"agent",      col:9,  row:5, desc:"Tengu Amber Flint. Parallel agent teammates. AsyncLocalStorage context isolation — no bleed between agents." },
+      udsinbox:   { label:"UDS INBOX",       sublabel:"Agent-to-Agent Comms",        group:"agent",      col:10, row:5, desc:"Agent-to-agent messaging over Unix sockets. Direct agent communication channel." },
+      bridge:     { label:"BRIDGE",          sublabel:"Remote CLI Control",          group:"agent",      col:11, row:5, desc:"Remote CLI control from phone or external browser." },
+      buddy:      { label:"BUDDY",           sublabel:"Companion Agent",             group:"agent",      col:12, row:5, desc:"Tamagotchi-style companion. 18 species, rarity tiers, stats. Personality layer." },
+      mcptool:    { label:"MCP TOOL",        sublabel:"Model Context Protocol",      group:"tools",      col:2,  row:6, desc:"MCP bridge. Connects Semblance to any MCP-compatible server — Gmail, Google Calendar, Slack, Asana, custom tools. Tool definitions loaded dynamically at runtime." },
+      tools:      { label:"TOOLS",           sublabel:"Flat Registry · API Gateway", group:"tools",      col:4,  row:6, desc:"The flat registry. Every tool (AgentTool, BashTool, MCP, ArtifactTool) defines its own input schema, permission level, and execution logic independently. Zero shared mutable state between tools." },
+      agenttool:  { label:"AGENT TOOL",      sublabel:"Sub-agents as Tool Calls",    group:"tools",      col:6,  row:6, desc:"Spawns sub-agents as standard tool calls. Flat, predictable. Sub-agents enter the same registry." },
+      bashtool:   { label:"BASH TOOL",       sublabel:"23 Security Checks",          group:"tools",      col:8,  row:6, desc:"Every shell command gated through 23 numbered security checks in bashSecurity before execution." },
+      artifact:   { label:"ARTIFACT TOOL",   sublabel:"JSX · HTML · SVG · MD",       group:"tools",      col:10, row:6, desc:"Structured output renderer. Tags responses with artifact type jsx|html|mermaid|svg|md. JSX via @babel/standalone. HTML in sandboxed iframe." },
+      shadowtool: { label:"SHADOW TOOL",     sublabel:"UNDERCOVER Exclusive",        group:"undercover", col:12, row:6, desc:"UNDERCOVER-only tool. Identity masking, attribution stripping, stealth commits. No other agent can call this." },
+      serpapi:    { label:"SERP API",        sublabel:"Web Search",                  group:"webtools",   col:2,  row:7, desc:"Google search results and news via SerpAPI. Accessed through the flat TOOLS registry." },
+      webfetch:   { label:"WEB FETCH",       sublabel:"URL Retrieval",               group:"webtools",   col:4,  row:7, desc:"Fetches full page content from URLs. Part of the Web Tools subsection within TOOLS registry." },
+      newstool:   { label:"NEWS TOOL",       sublabel:"Real-time News",              group:"webtools",   col:6,  row:7, desc:"Real-time news retrieval. Used by KAIROS for monitoring and proactive alerts." },
+      calendar:   { label:"CALENDAR",        sublabel:"Google Calendar API",         group:"misc",       col:9,  row:7, desc:"Google Calendar read/write. Schedule awareness for PROACTIVE and KAIROS — time-aware outreach and reminders." },
+      whatsapp:   { label:"WHATSAPP",        sublabel:"WhatsApp Business API",       group:"misc",       col:11, row:7, desc:"WhatsApp Business API. PROACTIVE outbound channel for alerts, reminders, and lead capture." },
+      groq:       { label:"GROQ",            sublabel:"Llama 3.3-70B — Free",        group:"llm",        col:8,  row:8, desc:"Free LLM backend. Powers most agents via TOOLS. Rotating API keys. All calls intercepted by Cache Layer — cache hit returns at 0.10× base cost." },
+      deepseek:   { label:"DEEPSEEK-R1",     sublabel:"via Groq — Free",             group:"llm",        col:10, row:8, desc:"Powers ULTRAPLAN. Deep reasoning sessions up to 30 minutes. Free via Groq." },
+      github:     { label:"GITHUB",          sublabel:"via SHADOW TOOL only",        group:"undercover", col:12, row:8, desc:"GitHub stealth access. Only reachable through SHADOW TOOL in UNDERCOVER mode." },
+      mysql:      { label:"AIVEN MYSQL",     sublabel:"Persistent Storage",          group:"storage",    col:5,  row:9, desc:"Long-term persistent storage. TAU memory, conversation history, user model data. Aiven-hosted MySQL — free tier. Raw text and structured records. Nothing ever deleted." },
+      vecstore:   { label:"CHROMADB",        sublabel:"Vector Embedding Store",      group:"storage",    col:7,  row:9, desc:"Semantic vector store alongside Aiven MySQL. MySQL holds raw text, ChromaDB holds embeddings. DREAM writes at consolidation time. SEM RETRIEVAL queries by cosine similarity every turn. Runs locally, free." },
+    };
 
-<!-- TESTIMONIALS -->
-<section class="testimonials-section" id="testimonials">
-  <div class="container">
-    <div class="row mb-5">
-      <div class="col-lg-6">
-        <div class="section-label">Client Feedback</div>
-        <h2 class="section-title">What Our Clients Say</h2>
-        <div class="divider-ct"></div>
-      </div>
-    </div>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="testimonial-card">
-          <div class="quote-mark">"</div>
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">Charlie and Tlisetso sorted out 8 months of backlog books in two weeks. Our SARS account is clean for the first time in years. Highly recommended for any small business.</p>
-          <div class="testimonial-author">Nomsa M.</div>
-          <div class="testimonial-role">Retail trader, Soweto</div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="testimonial-card">
-          <div class="quote-mark">"</div>
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">We've been with CT Holdings since they opened. VAT submissions are always on time and I never have to chase. Affordable rates and you deal directly with the directors.</p>
-          <div class="testimonial-author">Themba K.</div>
-          <div class="testimonial-role">Construction SME, Pretoria</div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="testimonial-card">
-          <div class="quote-mark">"</div>
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">I was scared about registering for VAT. Tlisetso walked me through everything and handles all my monthly submissions. I can focus on my business stress-free.</p>
-          <div class="testimonial-author">Precious D.</div>
-          <div class="testimonial-role">Salon owner, Johannesburg</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    // ─── Edge definitions ─────────────────────────────────────────────────────────
+    const EDGES = [
+      ["ui","gateway"], ["voice","gateway"], ["artifact","ui"],
+      ["gateway","tau"], ["gateway","bootstrap"], ["gateway","undercover"],
+      ["bootstrap","ctxassem"], ["ctxassem","memload"], ["memload","queryeng"],
+      ["queryeng","toolexec"], ["toolexec","ctxpress"], ["ctxpress","subdeleg"],
+      ["subdeleg","cableman"],
+      ["memload","semret"], ["semret","queryeng"], ["vecstore","semret"], ["mysql","semret"],
+      ["tau","semret"],
+      ["queryeng","cachesys"], ["queryeng","cacheconv"], ["queryeng","cachektrl"],
+      ["queryeng","workingmem"], ["workingmem","cableman"],
+      ["naturesci","salience"], ["taucache","salience"], ["queryeng","salience"],
+      ["dream","salience"], ["salience","mysql"], ["salience","vecstore"],
+      ["cachesys","groq"], ["cacheconv","groq"], ["cachektrl","groq"], ["cachesys","deepseek"],
+      ["tau","usermodel"], ["tau","memory"], ["tau","identity"], ["tau","pacific"],
+      ["tau","taucache"], ["taucache","pacific"], ["taucache","cableman"],
+      ["tau","cableman"], ["dream","tau"], ["tau","tools"],
+      ["cableman","naturesci"], ["naturesci","cableman"],
+      ["cableman","kairos"], ["cableman","ultraplan"], ["cableman","coord"],
+      ["cableman","dream"], ["cableman","proactive"], ["cableman","explore"],
+      ["cableman","plan"], ["cableman","general"], ["cableman","guide"],
+      ["cableman","swarm"], ["cableman","udsinbox"], ["cableman","bridge"], ["cableman","buddy"],
+      ["undercover","shadowtool"], ["undercover","tools"],
+      ["kairos","tools"], ["ultraplan","tools"], ["coord","tools"], ["dream","tools"],
+      ["proactive","tools"], ["explore","tools"], ["plan","tools"], ["general","tools"],
+      ["guide","tools"], ["swarm","tools"], ["udsinbox","tools"], ["bridge","tools"], ["buddy","tools"],
+      ["tools","agenttool"], ["tools","bashtool"], ["tools","mcptool"], ["tools","artifact"],
+      ["tools","serpapi"], ["tools","webfetch"], ["tools","newstool"],
+      ["tools","calendar"], ["tools","whatsapp"],
+      ["tools","groq"], ["tools","deepseek"],
+      ["tools","mysql"], ["tools","vecstore"],
+      ["mysql","vecstore"],
+      ["shadowtool","github"],
+    ];
 
-<!-- PRICING -->
-<section id="pricing">
-  <div class="container">
-    <div class="row mb-5">
-      <div class="col-lg-6">
-        <div class="section-label">Transparent Pricing</div>
-        <h2 class="section-title">Bookkeeping Packages</h2>
-        <div class="divider-ct"></div>
-        <p class="section-sub">All fees exclude VAT. Consumables cover printing, admin, courier and ad-hoc disbursements.</p>
-      </div>
-    </div>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-3">
-        <div class="price-card">
-          <div class="price-label">Starter</div>
-          <h4>Very Small Business</h4>
-          <div class="price-amount">R500</div>
-          <div class="price-period">per month</div>
-          <ul class="price-features">
-            <li><i class="bi bi-check-circle-fill"></i> 10–59 transactions</li>
-            <li><i class="bi bi-check-circle-fill"></i> Not VAT-registered</li>
-            <li><i class="bi bi-check-circle-fill"></i> Monthly bookkeeping</li>
-            <li><i class="bi bi-check-circle-fill"></i> Bank reconciliation</li>
-            <li><i class="bi bi-check-circle-fill"></i> P&L summary</li>
-          </ul>
-          <a href="quote.html" class="btn-price btn-price-outline">Get Started</a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="price-card featured">
-          <div class="price-label">Most Popular</div>
-          <h4>Core SME</h4>
-          <div class="price-amount">R1,500</div>
-          <div class="price-period">per month</div>
-          <ul class="price-features">
-            <li><i class="bi bi-check-circle-fill"></i> 60–150 transactions</li>
-            <li><i class="bi bi-check-circle-fill"></i> VAT-registered</li>
-            <li><i class="bi bi-check-circle-fill"></i> VAT schedules</li>
-            <li><i class="bi bi-check-circle-fill"></i> Monthly reconciliations</li>
-            <li><i class="bi bi-check-circle-fill"></i> P&L & Balance Sheet</li>
-          </ul>
-          <a href="quote.html" class="btn-price btn-price-gold">Get Started</a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="price-card">
-          <div class="price-label">SME + Payroll</div>
-          <h4>Higher Complexity</h4>
-          <div class="price-amount">R4k+</div>
-          <div class="price-period">per month</div>
-          <ul class="price-features">
-            <li><i class="bi bi-check-circle-fill"></i> Multiple employees</li>
-            <li><i class="bi bi-check-circle-fill"></i> Payroll & payslips</li>
-            <li><i class="bi bi-check-circle-fill"></i> Monthly EMP201</li>
-            <li><i class="bi bi-check-circle-fill"></i> VAT included</li>
-            <li><i class="bi bi-check-circle-fill"></i> Management reports</li>
-          </ul>
-          <a href="quote.html" class="btn-price btn-price-red">Get a Quote</a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="price-card">
-          <div class="price-label">Tax Returns</div>
-          <h4>Annual Submissions</h4>
-          <div class="price-amount">R500</div>
-          <div class="price-period">from / per return</div>
-          <ul class="price-features">
-            <li><i class="bi bi-check-circle-fill"></i> ITR12 from R500</li>
-            <li><i class="bi bi-check-circle-fill"></i> Basic business R1,600</li>
-            <li><i class="bi bi-check-circle-fill"></i> Complex from R4,500</li>
-            <li><i class="bi bi-check-circle-fill"></i> +10–20% consumables</li>
-            <li><i class="bi bi-check-circle-fill"></i> Clean-up from R500</li>
-          </ul>
-          <a href="quote.html" class="btn-price btn-price-outline">Enquire Now</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    // ─── Layout constants ─────────────────────────────────────────────────────────
+    const COLS  = 13;
+    const ROWS  = 10;
+    const SVG_W = 1500;
+    const SVG_H = 1280;
+    const PAD_X = 58;
+    const PAD_Y = 52;
 
-<!-- COMPLIANCE BANNER -->
-<div class="compliance-banner">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-8">
-        <h3>Officially Registered with CIPC</h3>
-        <p>CT Holdings and Investments (Pty) Ltd is a registered South African private company, incorporated 17 March 2025.</p>
-        <div class="reg-badge">Reg. No. 2025/230601/07</div>
-      </div>
-      <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
-        <a href="quote.html" class="btn-primary-ct">Start Working With Us <i class="bi bi-arrow-right"></i></a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-5">
-        <div class="section-label">About Us</div>
-        <h2 class="section-title">Reliable. Affordable. Compliant.</h2>
-        <div class="divider-ct"></div>
-        <p style="color:#555; line-height:1.8; margin-bottom:1.5rem;">
-          CT Holdings & Investments was founded to give South African small and medium businesses access to
-          professional financial services that are accurate, timely and affordable. We understand the regulatory landscape
-          and help our clients stay compliant with SARS, the Companies Act and CIPC requirements.
-        </p>
-        <p style="color:#555; line-height:1.8;">
-          Whether you're a sole trader needing basic bookkeeping or a growing business requiring payroll and VAT management,
-          we tailor our service to your stage and budget.
-        </p>
-        <div class="about-info-card mt-4">
-          <div class="item"><i class="bi bi-telephone-fill"></i><span>+27 60 951 1263 &nbsp;|&nbsp; +27 64 883 3476</span></div>
-          <div class="item"><i class="bi bi-envelope-fill"></i><span>csmokoena11@gmail.com<br/>tisetsoclio98@gmail.com</span></div>
-          <div class="item"><i class="bi bi-geo-alt-fill"></i><span>3006 Thembelihle Street, Slovo – Winterveld, Pretoria, Gauteng, 0198</span></div>
-        </div>
-      </div>
-      <div class="col-lg-7">
-        <div class="section-label">Leadership</div>
-        <h3 class="section-title" style="font-size:1.7rem;">Meet the Directors</h3>
-        <div class="divider-ct"></div>
-        <div class="row g-3 mt-1">
-          <div class="col-md-6">
-            <div class="director-card">
-              <h6>Charlie Mokoena</h6>
-              <small>Director & Co-Founder</small>
-              <p style="font-size:0.85rem; color:#666; margin-top:10px; line-height:1.6;">Overseeing operations and client relations, with a focus on delivering compliant, accurate financial services to every client.</p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="director-card">
-              <h6>Tlisetso Malemule</h6>
-              <small>Director & Co-Founder</small>
-              <p style="font-size:0.85rem; color:#666; margin-top:10px; line-height:1.6;">Driving the company's bookkeeping and tax strategy, ensuring clients receive hands-on support and expert guidance.</p>
-            </div>
-          </div>
-        </div>
-        <div style="background:var(--light); border-radius:6px; padding:1.5rem; margin-top:1.5rem;">
-          <div class="row text-center g-3">
-            <div class="col-4">
-              <div style="font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--navy); font-weight:900;">SME</div>
-              <div style="font-size:0.75rem; color:#888; text-transform:uppercase; letter-spacing:1px;">Focused</div>
-            </div>
-            <div class="col-4">
-              <div style="font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--navy); font-weight:900;">100%</div>
-              <div style="font-size:0.75rem; color:#888; text-transform:uppercase; letter-spacing:1px;">Compliant</div>
-            </div>
-            <div class="col-4">
-              <div style="font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--navy); font-weight:900;">ZAR</div>
-              <div style="font-size:0.75rem; color:#888; text-transform:uppercase; letter-spacing:1px;">Affordable Rates</div>
-            </div>
-          </div>
-        </div>
-        <div class="mt-4">
-          <a href="quote.html" class="btn-primary-ct">Request a Free Quote <i class="bi bi-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-lg-4">
-        <h5>CT Holdings & Investments</h5>
-        <p style="font-size:0.88rem; line-height:1.8; max-width:280px;">Professional bookkeeping and SARS compliance services — VAT returns, PAYE payroll and tax submissions — for South African businesses. Reliable. Affordable. Compliant.</p>
-        <div class="footer-reg mt-3">Reg. No. 2025/230601/07</div>
-      </div>
-      <div class="col-lg-2 col-6">
-        <h5>Services</h5>
-        <ul>
-          <li><a href="services/bookkeeping.html">Bookkeeping</a></li>
-          <li><a href="services/sars-submissions.html">SARS Submissions</a></li>
-          <li><a href="services/payroll.html">Payroll</a></li>
-          <li><a href="services/tax-returns.html">Tax Returns</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-2 col-6">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="quote.html">Get a Quote</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-4">
-        <h5>Contact</h5>
-        <ul>
-          <li><a href="tel:+27609511263">+27 60 951 1263</a></li>
-          <li><a href="tel:+27648833476">+27 64 883 3476</a></li>
-          <li><a href="mailto:csmokoena11@gmail.com">csmokoena11@gmail.com</a></li>
-          <li style="color:rgba(255,255,255,0.4); font-size:0.85rem; margin-top:8px;">3006 Thembelihle St, Pretoria, 0198</li>
-        </ul>
-        <div class="mt-3">
-          <a href="https://wa.me/27609511263" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;text-decoration:none;padding:8px 16px;border-radius:4px;font-size:0.82rem;font-weight:600;">
-            <i class="bi bi-whatsapp"></i> WhatsApp Us
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
-      <span>&copy; 2025 CT Holdings and Investments (Pty) Ltd. All rights reserved.</span>
-      <span class="footer-reg">Financial Year End: March</span>
-    </div>
-  </div>
-</footer>
-
-<!-- WHATSAPP FAB -->
-<a href="https://wa.me/27609511263?text=Hi%2C%20I%20found%20CT%20Holdings%20online%20and%20would%20like%20a%20quote." target="_blank" rel="noopener" class="wa-fab" aria-label="WhatsApp CT Holdings">
-  <i class="bi bi-whatsapp"></i>
-</a>
-<div class="wa-tooltip">Chat on WhatsApp</div>
-
-<!-- AI CHAT FAB -->
-<div class="ai-fab" id="aiFab" role="button" aria-label="Ask our AI assistant" tabindex="0">
-  <i class="bi bi-stars"></i>
-</div>
-
-<!-- AI CHAT PANEL -->
-<div class="ai-chat-panel" id="aiPanel" role="dialog" aria-label="CT Holdings AI assistant">
-  <div class="ai-panel-header">
-    <div class="ai-avatar"><i class="bi bi-robot"></i></div>
-    <div>
-      <div class="ai-panel-title">CT Holdings Assistant</div>
-      <div class="ai-panel-sub">Powered by AI · Ask anything</div>
-    </div>
-    <button class="ai-panel-close" id="aiClose" aria-label="Close chat"><i class="bi bi-x-lg"></i></button>
-  </div>
-  <div class="ai-messages" id="aiMessages">
-    <div class="ai-msg bot">Hi! 👋 I'm the CT Holdings assistant. Ask me anything about our bookkeeping, VAT, payroll or tax services — or pricing.</div>
-  </div>
-  <div class="ai-input-row">
-    <textarea class="ai-input" id="aiInput" placeholder="Ask about pricing, services…" rows="1"></textarea>
-    <button class="ai-send" id="aiSend" aria-label="Send"><i class="bi bi-send-fill"></i></button>
-  </div>
-  <div class="ai-disclaimer">AI may make mistakes. For official advice contact our directors directly.</div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', function(e) {
-      const t = document.querySelector(this.getAttribute('href'));
-      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-    });
-  });
-
-  // Close mobile nav on link click
-  document.querySelectorAll('#navMenu .nav-link:not(.dropdown-toggle), #navMenu .dropdown-item').forEach(link => {
-    link.addEventListener('click', () => {
-      const bsCollapse = bootstrap.Collapse.getInstance(document.getElementById('navMenu'));
-      if (bsCollapse) bsCollapse.hide();
-    });
-  });
-
-  // ── AI CHAT ──
-  const aiFab   = document.getElementById('aiFab');
-  const aiPanel = document.getElementById('aiPanel');
-  const aiClose = document.getElementById('aiClose');
-  const aiInput = document.getElementById('aiInput');
-  const aiSend  = document.getElementById('aiSend');
-  const aiMsgs  = document.getElementById('aiMessages');
-
-  let chatOpen = false;
-  let chatHistory = [];
-
-  const SYSTEM_PROMPT = `You are the helpful AI assistant for CT Holdings and Investments (Pty) Ltd, a South African bookkeeping and tax compliance firm. 
-
-Key facts:
-- Registered company: 2025/230601/07, incorporated 17 March 2025
-- Directors: Charlie Mokoena (+27 60 951 1263, csmokoena11@gmail.com) and Tlisetso Malemule (+27 64 883 3476, tisetsoclio98@gmail.com)
-- Address: 3006 Thembelihle Street, Slovo-Winterveld, Pretoria, Gauteng, 0198
-- Website: https://www.ctholdings.co.za
-
-Services & Pricing (all excl. VAT):
-- Bookkeeping Starter: R500/month (10-59 transactions, non-VAT registered)
-- Bookkeeping Core SME: R1,500/month (60-150 transactions, VAT registered, includes VAT schedules, P&L, balance sheet)
-- Bookkeeping SME + Payroll: R4,000+/month (multiple employees, full payroll, EMP201, management reports)
-- Standard VAT Return: R1,200 + 10% consumables
-- Complex VAT Return: R1,600 + 20% consumables
-- Individual ITR12 tax return: R500 + 10% consumables
-- Basic business tax return: R1,600 + 20% consumables
-- Complex business tax return: R4,500+ + 20% consumables
-- Books clean-up/backlog: R500-R2,000 once-off
-
-Answer questions helpfully and concisely. Keep replies short — 2-4 sentences max unless more detail is needed. If someone asks to book or get a quote, direct them to https://www.ctholdings.co.za/quote.html or suggest calling/WhatsApping the directors. Do not make up information not listed above.`;
-
-  function toggleChat() {
-    chatOpen = !chatOpen;
-    aiPanel.classList.toggle('open', chatOpen);
-    if (chatOpen) setTimeout(() => aiInput.focus(), 300);
-  }
-
-  aiFab.addEventListener('click', toggleChat);
-  aiFab.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') toggleChat(); });
-  aiClose.addEventListener('click', toggleChat);
-
-  function appendMsg(text, role) {
-    const div = document.createElement('div');
-    div.className = `ai-msg ${role}`;
-    div.textContent = text;
-    aiMsgs.appendChild(div);
-    aiMsgs.scrollTop = aiMsgs.scrollHeight;
-    return div;
-  }
-
-  async function sendMessage() {
-    const text = aiInput.value.trim();
-    if (!text) return;
-    aiInput.value = '';
-    aiInput.style.height = 'auto';
-    aiSend.disabled = true;
-
-    appendMsg(text, 'user');
-    chatHistory.push({ role: 'user', content: text });
-
-    const typingEl = appendMsg('Typing…', 'typing');
-
-    try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1000,
-          system: SYSTEM_PROMPT,
-          messages: chatHistory,
-        }),
-      });
-      const data = await res.json();
-      const reply = data.content?.map(b => b.text || '').join('') || 'Sorry, I had trouble responding. Please try again.';
-      typingEl.remove();
-      appendMsg(reply, 'bot');
-      chatHistory.push({ role: 'assistant', content: reply });
-    } catch {
-      typingEl.remove();
-      appendMsg('Something went wrong. Please contact us directly at csmokoena11@gmail.com.', 'bot');
+    function getPos(col, row) {
+      return {
+        x: PAD_X + (col / (COLS - 1)) * (SVG_W - PAD_X * 2),
+        y: PAD_Y + (row / (ROWS - 1)) * (SVG_H - PAD_Y * 2),
+      };
     }
 
-    aiSend.disabled = false;
-    aiInput.focus();
-  }
+    const ROW_BANDS = [
+      { row:2, color:"#f97316" },
+      { row:4, color:"#ffd700" },
+      { row:5, color:"#06b6d4" },
+      { row:6, color:"#10b981" },
+      { row:7, color:"#475569" },
+      { row:8, color:"#94a3b8" },
+    ];
 
-  aiSend.addEventListener('click', sendMessage);
-  aiInput.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
-  });
-  aiInput.addEventListener('input', () => {
-    aiInput.style.height = 'auto';
-    aiInput.style.height = Math.min(aiInput.scrollHeight, 80) + 'px';
-  });
-</script>
+    const ROW_LABELS = [
+      { row:0, label:"INTERFACE",   color:"#00f5ff" },
+      { row:1, label:"GATEWAY",     color:"#a78bfa" },
+      { row:2, label:"PIPELINE",    color:"#f97316" },
+      { row:3, label:"CACHE",       color:"#e879f9" },
+      { row:4, label:"CORE",        color:"#ffd700" },
+      { row:5, label:"AGENTS",      color:"#06b6d4" },
+      { row:6, label:"TOOLS",       color:"#10b981" },
+      { row:7, label:"SUBSECTIONS", color:"#94a3b8" },
+      { row:8, label:"EXT. APIS",   color:"#94a3b8" },
+      { row:9, label:"STORAGE",     color:"#6366f1" },
+    ];
+
+    const BRACKETS = [
+      { colL:4, colR:10, row:3, color:"#e879f9", label:"CACHE LAYER" },
+      { colL:1, colR:7,  row:7, color:"#34d399", label:"WEB TOOLS"   },
+      { colL:8, colR:12, row:7, color:"#f59e0b", label:"MISC TOOLS"  },
+      { colL:2, colR:8,  row:9, color:"#6366f1", label:"STORAGE LAYER" },
+    ];
+
+    const UC_NODES    = new Set(["undercover","shadowtool","github"]);
+    const CACHE_NODES = new Set(["cachesys","cacheconv","cachektrl"]);
+    const WEB_NODES   = new Set(["serpapi","webfetch","newstool"]);
+    const MISC_NODES  = new Set(["calendar","whatsapp"]);
+
+    function edgeBaseColor(a, b) {
+      if (UC_NODES.has(a)    || UC_NODES.has(b))    return "#2d3f52";
+      if (CACHE_NODES.has(a) || CACHE_NODES.has(b)) return "#3a1a3a";
+      if (WEB_NODES.has(a)   || WEB_NODES.has(b))   return "#1a3a2a";
+      if (MISC_NODES.has(a)  || MISC_NODES.has(b))  return "#3a2a08";
+      if (a === "mysql" || b === "mysql")            return "#1e1e3f";
+      return "#1e293b";
+    }
+
+    function nodeRadius(group) {
+      if (group === "core")  return 27;
+      if (group === "tools") return 25;
+      return 18;
+    }
+
+    function SemblanceArchV9() {
+      const [selected, setSelected] = useState(null);
+
+      const connectedTo = useCallback((id) => {
+        if (!selected) return false;
+        return EDGES.some(([a,b]) => (a===selected || b===selected) && (a===id || b===id));
+      }, [selected]);
+
+      const handleNode = (id) => setSelected(prev => prev === id ? null : id);
+
+      return (
+        <div style={{
+          background:"#050a0f",
+          minHeight:"100vh",
+          fontFamily:"'Courier New', monospace",
+          color:"#e2e8f0",
+          padding:"14px",
+        }}>
+          {/* Header */}
+          <div style={{ textAlign:"center", marginBottom:"10px" }}>
+            <div style={{
+              fontSize:"22px", fontWeight:"900", letterSpacing:"8px",
+              background:"linear-gradient(90deg,#00f5ff,#ffd700,#ff6b6b,#e879f9,#10b981,#f59e0b,#6366f1)",
+              WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent",
+            }}>
+              SEMBLANCE
+            </div>
+            <div style={{ fontSize:"9px", letterSpacing:"3px", color:"#334155", marginTop:"3px" }}>
+              CABLES MAN v9 · TAU CACHE · NATURE SCI EMOTION · PACIFIC IDENTITY · SALIENCE ENGINE · WORKING MEM · SEM RETRIEVAL · CHROMADB · CACHE LAYER · REGISTRY: MCP + AGENT + BASH + ARTIFACT · WEB + MISC · STORAGE
+            </div>
+          </div>
+
+          {/* Legend */}
+          <div style={{ display:"flex", gap:"8px", justifyContent:"center", flexWrap:"wrap", marginBottom:"10px" }}>
+            {Object.entries(GROUP_LABEL).map(([g, label]) => (
+              <div key={g} style={{ display:"flex", alignItems:"center", gap:"4px", fontSize:"8px", color:"#64748b" }}>
+                <div style={{ width:"7px", height:"7px", borderRadius:"2px", background:COLOR[g] }} />
+                {label}
+              </div>
+            ))}
+          </div>
+
+          {/* SVG canvas */}
+          <div style={{ position:"relative", maxWidth:"1500px", margin:"0 auto" }}>
+            <svg viewBox={`0 0 ${SVG_W} ${SVG_H}`} style={{ width:"100%", height:"auto", display:"block" }}>
+              <defs>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="4" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <filter id="sglow">
+                  <feGaussianBlur stdDeviation="2" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <filter id="cacheglow">
+                  <feGaussianBlur stdDeviation="5" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <filter id="storageglow">
+                  <feGaussianBlur stdDeviation="6" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <marker id="arDim" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+                  <path d="M0,0 L0,5 L5,2.5 z" fill="#1e293b"/>
+                </marker>
+                <marker id="arActive" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+                  <path d="M0,0 L0,5 L5,2.5 z" fill="#ffd700"/>
+                </marker>
+              </defs>
+
+              {/* Row bands */}
+              {ROW_BANDS.map(({ row, color }) => {
+                const { y } = getPos(0, row);
+                const h = (SVG_H - PAD_Y * 2) / (ROWS - 1);
+                return (
+                  <rect key={row} x={0} y={y - h*0.55} width={SVG_W*0.88} height={h*1.1}
+                    fill={color} opacity={0.025} rx={3}/>
+                );
+              })}
+
+              {/* Cache band row 3 */}
+              {(() => {
+                const { y } = getPos(0, 3);
+                const h = (SVG_H - PAD_Y * 2) / (ROWS - 1);
+                return <rect x={0} y={y - h*0.55} width={SVG_W*0.88} height={h*1.1}
+                  fill="#e879f9" opacity={0.04} rx={3}/>;
+              })()}
+
+              {/* Storage band row 9 */}
+              {(() => {
+                const { y } = getPos(0, 9);
+                const h = (SVG_H - PAD_Y * 2) / (ROWS - 1);
+                return <rect x={0} y={y - h*0.6} width={SVG_W*0.88} height={h*1.2}
+                  fill="#6366f1" opacity={0.04} rx={3}/>;
+              })()}
+
+              {/* UNDERCOVER vertical band */}
+              {(() => {
+                const { x, y } = getPos(12, 2);
+                const totalH = (SVG_H - PAD_Y * 2) * (6 / (ROWS - 1));
+                return (
+                  <rect x={x-38} y={y-38} width={118} height={totalH+76}
+                    fill="#64748b" opacity={0.04} rx={6}
+                    stroke="#64748b" strokeWidth="0.7" strokeDasharray="3,5"/>
+                );
+              })()}
+
+              {/* Bracket overlays */}
+              {BRACKETS.map(({ colL, colR, row, color, label }) => {
+                const left  = getPos(colL, row);
+                const right = getPos(colR, row);
+                const mid   = getPos((colL + colR) / 2, row);
+                const h = (SVG_H - PAD_Y * 2) / (ROWS - 1);
+                return (
+                  <g key={label}>
+                    <rect x={left.x-30} y={left.y - h*0.5} width={right.x - left.x + 60} height={h}
+                      fill={color} opacity={0.06} rx={4}
+                      stroke={color} strokeWidth="0.7" strokeDasharray="3,4"/>
+                    <text x={mid.x} y={mid.y + h*0.42} textAnchor="middle"
+                      fontSize="7" fill={color} opacity="0.5" letterSpacing="2" fontWeight="700">
+                      {label}
+                    </text>
+                  </g>
+                );
+              })}
+
+              {/* Edges */}
+              {EDGES.map(([a, b], i) => {
+                const na = NODES[a], nb = NODES[b];
+                if (!na || !nb) return null;
+                const pa = getPos(na.col, na.row);
+                const pb = getPos(nb.col, nb.row);
+                const dx = pb.x - pa.x, dy = pb.y - pa.y;
+                const len = Math.sqrt(dx*dx + dy*dy);
+                if (len < 1) return null;
+                const r = 17;
+                const ex = pa.x + (dx / len) * (len - r);
+                const ey = pa.y + (dy / len) * (len - r);
+                const active = selected && (a === selected || b === selected);
+                const dim    = selected && !active;
+                const isUC   = UC_NODES.has(a) || UC_NODES.has(b);
+                const isCache = CACHE_NODES.has(a) || CACHE_NODES.has(b);
+                return (
+                  <line key={i}
+                    x1={pa.x} y1={pa.y} x2={ex} y2={ey}
+                    stroke={active ? COLOR[na.group] : edgeBaseColor(a, b)}
+                    strokeWidth={active ? 2 : isCache ? 1.0 : 0.8}
+                    strokeDasharray={isUC && !active ? "3,6" : isCache && !active ? "2,3" : active ? "none" : "4,4"}
+                    opacity={dim ? 0.04 : active ? 1 : isCache ? 0.65 : 0.55}
+                    filter={active ? "url(#sglow)" : "none"}
+                    markerEnd={active ? "url(#arActive)" : "url(#arDim)"}
+                    style={{ transition:"all 0.2s" }}
+                  />
+                );
+              })}
+
+              {/* Nodes */}
+              {Object.entries(NODES).map(([id, node]) => {
+                const { x, y } = getPos(node.col, node.row);
+                const color  = COLOR[node.group];
+                const isSel  = selected === id;
+                const isConn = connectedTo(id);
+                const dim    = selected && !isSel && !isConn;
+                const r      = nodeRadius(node.group);
+                const isCache   = node.group === "cache";
+                const isStorage = node.group === "storage";
+                return (
+                  <g key={id} transform={`translate(${x},${y})`}
+                    style={{ cursor:"pointer" }}
+                    onClick={() => handleNode(id)}>
+                    {isSel && (
+                      <circle r={r+8} fill="none"
+                        stroke={color} strokeWidth="1" opacity="0.35" strokeDasharray="3,3"/>
+                    )}
+                    {node.group === "undercover" && (
+                      <circle r={r+5} fill="none"
+                        stroke="#64748b" strokeWidth="0.8"
+                        opacity={dim ? 0.08 : 0.28} strokeDasharray="2,4"/>
+                    )}
+                    {isCache && !dim && (
+                      <circle r={r+10} fill={color} opacity="0.05" filter="url(#cacheglow)"/>
+                    )}
+                    {isStorage && !dim && (
+                      <circle r={r+10} fill={color} opacity="0.04" filter="url(#storageglow)"/>
+                    )}
+                    <circle r={r} fill="#080f1a" stroke={color}
+                      strokeWidth={isSel ? 2.5 : isCache ? 1.5 : 1.2}
+                      opacity={dim ? 0.12 : 1}
+                      filter={isSel ? "url(#glow)" : "none"}
+                      style={{ transition:"all 0.2s" }}/>
+                    <circle r={r-4} fill={color} opacity={dim ? 0.02 : 0.07}/>
+                    <circle r={2.5} fill={color} opacity={dim ? 0.12 : 0.9}/>
+                    <text textAnchor="middle" dy={-(r+9)}
+                      fontSize={node.group === "core" ? 8.5 : 7.5}
+                      fontWeight="700" letterSpacing="0.8"
+                      fill={color} opacity={dim ? 0.12 : 1}
+                      style={{ transition:"all 0.2s" }}>
+                      {node.label}
+                    </text>
+                    <text textAnchor="middle" dy={-(r+2)}
+                      fontSize="6.5" fill="#475569" opacity={dim ? 0.08 : 0.75}>
+                      {node.sublabel}
+                    </text>
+                  </g>
+                );
+              })}
+
+              {/* Row labels */}
+              {ROW_LABELS.map(({ row, label, color }) => {
+                const { y } = getPos(0, row);
+                return (
+                  <text key={label} x="6" y={y}
+                    fontSize="7" fill={color}
+                    opacity={label === "CACHE" || label === "STORAGE" ? 0.55 : 0.3}
+                    fontWeight="700" letterSpacing="1.5"
+                    dominantBaseline="middle">
+                    {label}
+                  </text>
+                );
+              })}
+            </svg>
+
+            {/* Detail panel */}
+            {selected && NODES[selected] && (() => {
+              const node  = NODES[selected];
+              const color = COLOR[node.group];
+              const connections = EDGES
+                .filter(([a,b]) => a===selected || b===selected)
+                .map(([a,b]) => a===selected ? NODES[b]?.label : NODES[a]?.label)
+                .filter(Boolean);
+              return (
+                <div style={{
+                  position:"absolute", bottom:"10px", left:"50%", transform:"translateX(-50%)",
+                  background:"#0a1628", border:`1px solid ${color}`,
+                  borderRadius:"8px", padding:"12px 18px",
+                  maxWidth:"460px", width:"90%",
+                  boxShadow:`0 0 28px ${color}18`,
+                }}>
+                  <div style={{ display:"flex", alignItems:"center", gap:"8px", marginBottom:"6px" }}>
+                    <span style={{ fontSize:"11px", fontWeight:"700", letterSpacing:"2px", color }}>
+                      {node.label}
+                    </span>
+                    <span style={{
+                      fontSize:"8px",
+                      background:`${color}18`, color,
+                      padding:"2px 7px", borderRadius:"3px",
+                    }}>
+                      {GROUP_LABEL[node.group]}
+                    </span>
+                  </div>
+                  <div style={{ fontSize:"11px", color:"#94a3b8", lineHeight:"1.65" }}>
+                    {node.desc}
+                  </div>
+                  {connections.length > 0 && (
+                    <div style={{ marginTop:"8px", fontSize:"9px", color:"#334155" }}>
+                      ↔ {connections.join("  ·  ")}
+                    </div>
+                  )}
+                </div>
+              );
+            })()}
+          </div>
+
+          {/* Footer */}
+          <div style={{ textAlign:"center", marginTop:"10px", fontSize:"8px", color:"#1e293b", letterSpacing:"2px" }}>
+            TAP ANY NODE · PIPELINE → CACHE → LLM · REGISTRY: MCP + AGENT + BASH + ARTIFACT · STORAGE · UNDERCOVER RIGHT
+          </div>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<SemblanceArchV9 />);
+  </script>
 </body>
 </html>
