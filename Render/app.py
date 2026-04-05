@@ -1,4 +1,4 @@
-oslask import Flask, request, jsonify
+import Flask, request, jsonify
 import requests, os
 from flask_cors import CORS
 
