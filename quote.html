@@ -3,441 +3,666 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Get a Quote | CT Holdings &amp; Investments</title>
-  <meta name="description" content="Request a free quote from CT Holdings &amp; Investments. Bookkeeping, VAT returns, payroll and SARS tax submissions for South African businesses."/>
-  <meta name="robots" content="index, follow"/>
+  <title>Get a Quote | CT Holdings & Investments</title>
+  <meta name="description" content="Request a free quote from CT Holdings & Investments."/>
   <link rel="canonical" href="https://www.ctholdings.co.za/quote.html"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
+  <style>
+    :root {
+      --navy: #0d1b3e;
+      --red: #8b0000;
+      --red-bright: #c0392b;
+      --gold: #c9a84c;
+      --light: #f4f4f0;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      background: rgba(13,27,62,0.95);
+      backdrop-filter: blur(12px);
+      padding: 1rem 0;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .navbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .navbar-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .navbar-brand img { height: 44px; width: auto; }
+    .navbar-brand span { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--white); line-height: 1.2; }
+    .navbar-brand span small { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.62rem; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+    .nav-back { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+    .nav-back:hover { color: var(--gold); }
+
+    /* ── QUIZ SHELL ── */
+    .quiz-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 1.5rem 60px;
+      position: relative;
+    }
+
+    /* decorative blobs */
+    .quiz-shell::before {
+      content: '';
+      position: fixed;
+      top: -20%;
+      right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(139,0,0,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .quiz-shell::after {
+      content: '';
+      position: fixed;
+      bottom: -20%;
+      left: -10%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── PROGRESS ── */
+    .progress-bar-wrap {
+      width: 100%;
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+    }
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .step-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .step-count { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+    .progress-track {
+      height: 3px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+      border-radius: 2px;
+      transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ── CARD ── */
+    .card-stage {
+      width: 100%;
+      max-width: 680px;
+      position: relative;
+      perspective: 1200px;
+    }
+
+    .quiz-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 3rem 3rem 2.5rem;
+      backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+      animation: cardIn 0.45s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    .quiz-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(32px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes cardOut {
+      from { opacity: 1; transform: translateY(0) scale(1); }
+      to   { opacity: 0; transform: translateY(-24px) scale(0.97); }
+    }
+    .card-exiting { animation: cardOut 0.3s ease forwards; }
+
+    .card-icon {
+      width: 52px; height: 52px;
+      background: rgba(139,0,0,0.15);
+      border: 1px solid rgba(139,0,0,0.3);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .card-question {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 0.6rem;
+    }
+    .card-hint {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    /* ── OPTIONS GRID ── */
+    .options-grid {
+      display: grid;
+      gap: 0.75rem;
+    }
+    .options-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .options-grid.cols-1 { grid-template-columns: 1fr; }
+
+    .opt-btn {
+      background: rgba(255,255,255,0.04);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      color: rgba(255,255,255,0.85);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .opt-btn .opt-icon { font-size: 1.1rem; opacity: 0.7; flex-shrink: 0; }
+    .opt-btn:hover {
+      background: rgba(201,168,76,0.08);
+      border-color: var(--gold);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+    .opt-btn.selected {
+      background: rgba(139,0,0,0.2);
+      border-color: var(--red);
+      color: var(--white);
+    }
+    .opt-btn.selected .opt-icon { opacity: 1; color: var(--gold); }
+
+    /* ── TEXT INPUT ── */
+    .quiz-input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .quiz-input:focus { border-color: var(--gold); background: rgba(255,255,255,0.07); }
+    .quiz-input::placeholder { color: rgba(255,255,255,0.3); }
+    textarea.quiz-input { resize: none; min-height: 110px; }
+
+    /* ── ACTIONS ── */
+    .card-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2rem;
+      gap: 1rem;
+    }
+    .btn-back {
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+      padding: 0;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-back:hover { color: rgba(255,255,255,0.8); }
+    .btn-next {
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s, transform 0.15s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-next:hover:not(:disabled) { background: var(--red-bright); transform: translateY(-1px); }
+    .btn-next:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+    .btn-next.gold { background: var(--gold); color: var(--navy); }
+    .btn-next.gold:hover { filter: brightness(1.08); background: var(--gold); }
+
+    /* ── THANK YOU ── */
+    .thankyou-card {
+      text-align: center;
+      animation: cardIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    .thankyou-icon {
+      width: 80px; height: 80px;
+      background: rgba(201,168,76,0.12);
+      border: 2px solid rgba(201,168,76,0.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      color: var(--gold);
+      margin: 0 auto 2rem;
+    }
+    .thankyou-card h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 0.75rem; }
+    .thankyou-card p { color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 420px; margin: 0 auto 2rem; }
+    .summary-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 2rem; }
+    .chip {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ── SENDING STATE ── */
+    .spinner {
+      width: 18px; height: 18px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: var(--white);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── VALIDATION ── */
+    .field-error {
+      color: #ff6b6b;
+      font-size: 0.8rem;
+      margin-top: 6px;
+      display: none;
+    }
+    .field-error.show { display: block; }
+
+    @media (max-width: 600px) {
+      .quiz-card { padding: 2rem 1.5rem; }
+      .options-grid.cols-2 { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg">
-  <div class="container">
+<nav class="navbar">
+  <div class="navbar-inner">
     <a class="navbar-brand" href="index.html">
       <img src="CT_Logo_2.jpg" alt="CT Holdings Logo" onerror="this.style.display='none'"/>
-      <span>CT Holdings <small>&amp; Investments</small></span>
+      <span>CT Holdings <small>& Investments</small></span>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="services.html" role="button" data-bs-toggle="dropdown">Services</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="services/bookkeeping.html">Bookkeeping</a></li>
-            <li><a class="dropdown-item" href="services/sars-submissions.html">SARS Submissions</a></li>
-            <li><a class="dropdown-item" href="services/payroll.html">Payroll</a></li>
-            <li><a class="dropdown-item" href="services/tax-returns.html">Tax Returns</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link btn-nav-cta ms-2 active" href="quote.html">Get a Quote</a></li>
-      </ul>
-    </div>
+    <a href="index.html" class="nav-back"><i class="bi bi-arrow-left"></i> Back to site</a>
   </div>
 </nav>
 
-<!-- PAGE HERO -->
-<div class="page-hero">
-  <div class="page-hero-diagonal"></div>
-  <div class="container page-hero-content">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb mb-0">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active">Get a Quote</li>
-      </ol>
-    </nav>
-    <h1>Request a <em>Free Quote</em></h1>
-    <p>Tell us about your business and we'll recommend the right package — no obligation, no jargon.</p>
+<div class="quiz-shell">
+  <div class="progress-bar-wrap" id="progressWrap">
+    <div class="progress-meta">
+      <span class="step-label" id="stepLabel">Getting Started</span>
+      <span class="step-count" id="stepCount">1 of 9</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill" style="width:11%"></div>
+    </div>
+  </div>
+
+  <div class="card-stage" id="cardStage">
+    <!-- cards injected by JS -->
   </div>
 </div>
 
-<!-- QUOTE FORM -->
-<section style="background: var(--light);">
-  <div class="container">
-    <div class="row g-5">
-
-      <!-- LEFT: Contact Details -->
-      <div class="col-lg-4">
-        <div class="contact-card h-100">
-          <div class="section-label">Reach Us Directly</div>
-          <h3 class="section-title" style="font-size:1.6rem; margin-bottom:1rem;">We're Easy to Reach</h3>
-          <div class="divider-ct"></div>
-
-          <div class="contact-item mt-4">
-            <div class="contact-icon"><i class="bi bi-telephone-fill"></i></div>
-            <div>
-              <h6>Phone</h6>
-              <p><a href="tel:+27609511263" style="color:var(--navy); text-decoration:none;">+27 60 951 1263</a></p>
-              <p><a href="tel:+27648833476" style="color:var(--navy); text-decoration:none;">+27 64 883 3476</a></p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
-            <div>
-              <h6>Email</h6>
-              <p><a href="mailto:csmokoena11@gmail.com" style="color:var(--navy); text-decoration:none;">csmokoena11@gmail.com</a></p>
-              <p><a href="mailto:tisetsoclio98@gmail.com" style="color:var(--navy); text-decoration:none;">tisetsoclio98@gmail.com</a></p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
-            <div>
-              <h6>Address</h6>
-              <p>3006 Thembelihle Street<br/>Slovo – Winterveld<br/>Pretoria, Gauteng, 0198</p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon"><i class="bi bi-clock-fill"></i></div>
-            <div>
-              <h6>Office Hours</h6>
-              <p>Mon – Fri: 08:00 – 17:00</p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon"><i class="bi bi-building"></i></div>
-            <div>
-              <h6>Registration</h6>
-              <p>2025/230601/07</p>
-            </div>
-          </div>
-
-          <div style="background:var(--navy); border-radius:6px; padding:1.5rem; margin-top:1.5rem;">
-            <div style="font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:1rem;">Our Services</div>
-            <ul style="list-style:none; padding:0; margin:0;">
-              <li style="padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08); font-size:0.85rem; color:rgba(255,255,255,0.8);">
-                <i class="bi bi-journal-bookmark-fill" style="color:var(--gold); margin-right:8px;"></i> Bookkeeping from R500/month
-              </li>
-              <li style="padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08); font-size:0.85rem; color:rgba(255,255,255,0.8);">
-                <i class="bi bi-receipt-cutoff" style="color:var(--gold); margin-right:8px;"></i> VAT Returns from R1,200
-              </li>
-              <li style="padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.08); font-size:0.85rem; color:rgba(255,255,255,0.8);">
-                <i class="bi bi-people-fill" style="color:var(--gold); margin-right:8px;"></i> Payroll &amp; PAYE from R4,000/month
-              </li>
-              <li style="padding:6px 0; font-size:0.85rem; color:rgba(255,255,255,0.8);">
-                <i class="bi bi-file-earmark-text-fill" style="color:var(--gold); margin-right:8px;"></i> Tax Returns from R500
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT: Form -->
-      <div class="col-lg-8">
-        <div class="contact-card">
-          <div class="section-label">Quote Request</div>
-          <h3 class="section-title" style="font-size:1.6rem; margin-bottom:0.5rem;">Tell Us About Your Business</h3>
-          <div class="divider-ct"></div>
-          <p style="color:#777; font-size:0.9rem; margin-bottom:2rem; margin-top:0.5rem;">We typically respond within one business day.</p>
-
-          <div id="form-alert" style="display:none; padding:14px 18px; border-radius:6px; margin-bottom:1.5rem; font-size:0.9rem;"></div>
-
-          <form id="quote-form" class="contact-form" novalidate>
-
-            <input type="hidden" name="access_key" value="b11df953-dde4-4fc8-82c3-4c4a483aceb9"/>
-            <input type="hidden" name="subject" value="New Quote Request - CT Holdings and Investments"/>
-            <input type="hidden" name="from_name" value="CT Holdings Website"/>
-            <input type="checkbox" name="botcheck" style="display:none;"/>
-
-            <div class="row g-3">
-
-              <div class="col-md-6">
-                <label class="form-label">Full Name *</label>
-                <input type="text" name="full_name" class="form-control" placeholder="Your full name"/>
-                <div class="invalid-feedback"></div>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label">Email Address *</label>
-                <input type="email" name="email" class="form-control" placeholder="you@example.com"/>
-                <div class="invalid-feedback"></div>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label">Phone Number *</label>
-                <input type="tel" name="phone" class="form-control" placeholder="+27 ..."/>
-                <div class="invalid-feedback"></div>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label">Business Name *</label>
-                <input type="text" name="business_name" class="form-control" placeholder="Your company name"/>
-                <div class="invalid-feedback"></div>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label">Service Needed *</label>
-                <select name="service" class="form-select">
-                  <option value="">Select a service...</option>
-                  <option>Bookkeeping – Starter (R500/month)</option>
-                  <option>Bookkeeping – Core SME (R1,500/month)</option>
-                  <option>Bookkeeping – SME + Payroll (R4,000+/month)</option>
-                  <option>VAT Return – Standard (R1,200)</option>
-                  <option>VAT Return – Complex (R1,600)</option>
-                  <option>Payroll / PAYE Only</option>
-                  <option>Individual Tax Return – ITR12 (R500)</option>
-                  <option>Business Tax Return – Basic (R1,600)</option>
-                  <option>Business Tax Return – Complex (R4,500+)</option>
-                  <option>Books Clean-Up / Backlog</option>
-                  <option>Multiple Services / Bundle</option>
-                  <option>Not Sure – Need Advice</option>
-                </select>
-                <div class="invalid-feedback"></div>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label">Monthly Transactions (approx.) *</label>
-                <select name="monthly_transactions" class="form-select">
-                  <option value="">Select range...</option>
-                  <option>Under 10</option>
-                  <option>10 – 59</option>
-                  <option>60 – 150</option>
-                  <option>150+</option>
-                  <option>Not sure</option>
-                </select>
-                <div class="invalid-feedback"></div>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label">Are You VAT Registered? *</label>
-                <select name="vat_registered" class="form-select">
-                  <option value="">Select...</option>
-                  <option>Yes</option>
-                  <option>No</option>
-                  <option>Not sure</option>
-                </select>
-                <div class="invalid-feedback"></div>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label">Number of Employees *</label>
-                <select name="employees" class="form-select">
-                  <option value="">Select...</option>
-                  <option>0 (Sole trader)</option>
-                  <option>1 – 5</option>
-                  <option>6 – 20</option>
-                  <option>20+</option>
-                </select>
-                <div class="invalid-feedback"></div>
-              </div>
-
-              <div class="col-12">
-                <label class="form-label">Tell Us About Your Business</label>
-                <textarea name="message" class="form-control" rows="5" placeholder="Brief description of your business, current challenges, and what you need help with..."></textarea>
-              </div>
-
-              <div class="col-12">
-                <label class="form-label">How Did You Hear About Us? *</label>
-                <select name="referral_source" class="form-select">
-                  <option value="">Select...</option>
-                  <option>Google Search</option>
-                  <option>Referral / Word of Mouth</option>
-                  <option>Social Media</option>
-                  <option>Other</option>
-                </select>
-                <div class="invalid-feedback"></div>
-              </div>
-
-              <div class="col-12 mt-2">
-                <button id="submit-btn" type="submit" class="btn-primary-ct w-100 justify-content-center" style="border:none; cursor:pointer; font-size:0.95rem; padding:16px;">
-                  Submit Quote Request <i class="bi bi-send-fill"></i>
-                </button>
-                <p style="font-size:0.78rem; color:#aaa; text-align:center; margin-top:0.75rem; margin-bottom:0;">
-                  By submitting you agree to be contacted regarding your enquiry. We don't share your details.
-                </p>
-              </div>
-
-            </div>
-          </form>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-lg-4">
-        <h5>CT Holdings &amp; Investments</h5>
-        <p style="font-size:0.88rem; line-height:1.8; max-width:280px;">Professional bookkeeping and SARS compliance services for South African businesses. Reliable. Affordable. Compliant.</p>
-        <div class="footer-reg mt-3">Reg. No. 2025/230601/07</div>
-      </div>
-      <div class="col-lg-2 col-6">
-        <h5>Services</h5>
-        <ul>
-          <li><a href="services/bookkeeping.html">Bookkeeping</a></li>
-          <li><a href="services/sars-submissions.html">SARS Submissions</a></li>
-          <li><a href="services/payroll.html">Payroll</a></li>
-          <li><a href="services/tax-returns.html">Tax Returns</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-2 col-6">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="quote.html">Get a Quote</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-4">
-        <h5>Contact</h5>
-        <ul>
-          <li><a href="tel:+27609511263">+27 60 951 1263</a></li>
-          <li><a href="tel:+27648833476">+27 64 883 3476</a></li>
-          <li><a href="mailto:csmokoena11@gmail.com">csmokoena11@gmail.com</a></li>
-          <li style="color:rgba(255,255,255,0.4); font-size:0.85rem; margin-top:8px;">3006 Thembelihle St, Pretoria, 0198</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
-      <span>&copy; 2025 CT Holdings and Investments (Pty) Ltd. All rights reserved.</span>
-      <span class="footer-reg">Financial Year End: March</span>
-    </div>
-  </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  var validationRules = {
-    full_name:            { label: 'Full Name' },
-    email:                { label: 'Email Address', pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, patternMsg: 'Please enter a valid email address.' },
-    phone:                { label: 'Phone Number', pattern: /^\+?[\d\s\-]{7,15}$/, patternMsg: 'Please enter a valid phone number (e.g. +27 81 234 5678).' },
-    business_name:        { label: 'Business Name' },
-    service:              { label: 'Service Needed' },
-    monthly_transactions: { label: 'Monthly Transactions' },
-    vat_registered:       { label: 'VAT Registered' },
-    employees:            { label: 'Number of Employees' },
-    referral_source:      { label: 'How Did You Hear About Us' }
+const steps = [
+  {
+    id: 'full_name',
+    icon: 'bi-person',
+    label: 'Your Name',
+    question: 'What\'s your name?',
+    hint: 'We\'ll use this to personalise your quote.',
+    type: 'text',
+    placeholder: 'e.g. Sipho Dlamini',
+    required: true,
+  },
+  {
+    id: 'business_name',
+    icon: 'bi-building',
+    label: 'Business',
+    question: 'What\'s your business called?',
+    hint: 'Your registered company name or trading name.',
+    type: 'text',
+    placeholder: 'e.g. Dlamini Traders (Pty) Ltd',
+    required: true,
+  },
+  {
+    id: 'email',
+    icon: 'bi-envelope',
+    label: 'Contact',
+    question: 'Best email to reach you?',
+    hint: 'We\'ll send your quote here within one business day.',
+    type: 'email',
+    placeholder: 'you@example.com',
+    required: true,
+    validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? null : 'Please enter a valid email address.',
+  },
+  {
+    id: 'phone',
+    icon: 'bi-telephone',
+    label: 'Phone',
+    question: 'And your phone number?',
+    hint: 'Optional but helpful if we need to clarify anything quickly.',
+    type: 'tel',
+    placeholder: '+27 81 234 5678',
+    required: false,
+  },
+  {
+    id: 'service',
+    icon: 'bi-grid-1x2',
+    label: 'Service',
+    question: 'What do you need help with?',
+    hint: 'Pick the one that best fits — we\'ll tailor from there.',
+    type: 'options',
+    cols: 2,
+    options: [
+      { value: 'Bookkeeping', label: 'Bookkeeping', icon: 'bi-journal-bookmark-fill' },
+      { value: 'VAT Returns', label: 'VAT Returns', icon: 'bi-receipt-cutoff' },
+      { value: 'Payroll & PAYE', label: 'Payroll & PAYE', icon: 'bi-people-fill' },
+      { value: 'Tax Returns', label: 'Tax Returns', icon: 'bi-file-earmark-text-fill' },
+      { value: 'Multiple Services', label: 'Multiple Services', icon: 'bi-layers-fill' },
+      { value: 'Not Sure', label: 'Not sure yet', icon: 'bi-question-circle-fill' },
+    ],
+    required: true,
+  },
+  {
+    id: 'monthly_transactions',
+    icon: 'bi-activity',
+    label: 'Volume',
+    question: 'How busy is your business monthly?',
+    hint: 'Rough estimate of invoices, payments and bank transactions combined.',
+    type: 'options',
+    cols: 2,
+    options: [
+      { value: 'Under 10', label: 'Under 10 transactions', icon: 'bi-dash-circle' },
+      { value: '10–59', label: '10 – 59 transactions', icon: 'bi-circle-half' },
+      { value: '60–150', label: '60 – 150 transactions', icon: 'bi-circle-fill' },
+      { value: '150+', label: '150+ transactions', icon: 'bi-record-circle-fill' },
+    ],
+    required: true,
+  },
+  {
+    id: 'vat_registered',
+    icon: 'bi-shield-check',
+    label: 'VAT Status',
+    question: 'Is your business VAT registered?',
+    hint: 'This affects which package applies.',
+    type: 'options',
+    cols: 1,
+    options: [
+      { value: 'Yes', label: 'Yes, we\'re VAT registered', icon: 'bi-check-circle-fill' },
+      { value: 'No', label: 'No, not VAT registered', icon: 'bi-x-circle-fill' },
+      { value: 'Not sure', label: 'I\'m not sure', icon: 'bi-question-circle-fill' },
+    ],
+    required: true,
+  },
+  {
+    id: 'employees',
+    icon: 'bi-people',
+    label: 'Team Size',
+    question: 'How many employees do you have?',
+    hint: 'Including yourself if you pay yourself a salary.',
+    type: 'options',
+    cols: 2,
+    options: [
+      { value: '0 (Sole trader)', label: 'Just me', icon: 'bi-person-fill' },
+      { value: '1–5', label: '1 – 5 employees', icon: 'bi-people' },
+      { value: '6–20', label: '6 – 20 employees', icon: 'bi-people-fill' },
+      { value: '20+', label: '20+ employees', icon: 'bi-person-workspace' },
+    ],
+    required: true,
+  },
+  {
+    id: 'message',
+    icon: 'bi-chat-left-text',
+    label: 'Anything else',
+    question: 'Anything else we should know?',
+    hint: 'Current challenges, backlog, specific deadlines — all helpful but totally optional.',
+    type: 'textarea',
+    placeholder: 'e.g. We\'ve been doing our own books but got behind. Need to sort out 6 months backlog...',
+    required: false,
+  },
+];
+
+let current = 0;
+const answers = {};
+let sending = false;
+
+const stage = document.getElementById('cardStage');
+const progressFill = document.getElementById('progressFill');
+const stepLabel = document.getElementById('stepLabel');
+const stepCount = document.getElementById('stepCount');
+const progressWrap = document.getElementById('progressWrap');
+
+function updateProgress(idx) {
+  const pct = Math.round(((idx) / steps.length) * 100);
+  progressFill.style.width = Math.max(6, pct) + '%';
+  stepLabel.textContent = steps[idx] ? steps[idx].label : 'Done';
+  stepCount.textContent = `${idx + 1} of ${steps.length}`;
+}
+
+function getCurrentValue(step) {
+  if (step.type === 'options') {
+    const sel = stage.querySelector('.opt-btn.selected');
+    return sel ? sel.dataset.value : '';
+  }
+  const inp = stage.querySelector('.quiz-input');
+  return inp ? inp.value.trim() : '';
+}
+
+function validateCurrent(step) {
+  const val = getCurrentValue(step);
+  if (step.required && !val) return 'This field is required.';
+  if (val && step.validate) return step.validate(val);
+  return null;
+}
+
+function renderCard(idx, direction = 1) {
+  if (idx >= steps.length) { renderDone(); return; }
+  const step = steps[idx];
+  updateProgress(idx);
+
+  const card = document.createElement('div');
+  card.className = 'quiz-card';
+
+  let inputHTML = '';
+  if (step.type === 'options') {
+    const optBtns = step.options.map(o =>
+      `<button class="opt-btn${answers[step.id] === o.value ? ' selected' : ''}" data-value="${o.value}" type="button">
+        <i class="bi ${o.icon} opt-icon"></i>${o.label}
+      </button>`
+    ).join('');
+    inputHTML = `<div class="options-grid ${step.cols === 2 ? 'cols-2' : 'cols-1'}">${optBtns}</div>`;
+  } else if (step.type === 'textarea') {
+    inputHTML = `<textarea class="quiz-input" placeholder="${step.placeholder || ''}" rows="4">${answers[step.id] || ''}</textarea>`;
+  } else {
+    inputHTML = `<input class="quiz-input" type="${step.type}" placeholder="${step.placeholder || ''}" value="${answers[step.id] || ''}"/>`;
+  }
+
+  card.innerHTML = `
+    <div class="card-icon"><i class="bi ${step.icon}"></i></div>
+    <div class="card-question">${step.question}</div>
+    <div class="card-hint">${step.hint}</div>
+    ${inputHTML}
+    <div class="field-error" id="fieldErr"></div>
+    <div class="card-actions">
+      <button class="btn-back" id="btnBack" type="button" ${idx === 0 ? 'style="visibility:hidden"' : ''}>
+        <i class="bi bi-arrow-left"></i> Back
+      </button>
+      <button class="btn-next ${idx === steps.length - 1 ? 'gold' : ''}" id="btnNext" type="button">
+        ${idx === steps.length - 1 ? '<i class="bi bi-send-fill"></i> Submit' : 'Next <i class="bi bi-arrow-right"></i>'}
+      </button>
+    </div>
+  `;
+
+  stage.innerHTML = '';
+  stage.appendChild(card);
+
+  // auto-focus text inputs
+  if (step.type !== 'options') {
+    setTimeout(() => card.querySelector('.quiz-input')?.focus(), 80);
+  }
+
+  // option click
+  card.querySelectorAll('.opt-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      card.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      answers[step.id] = btn.dataset.value;
+      // auto-advance
+      setTimeout(() => advance(idx, step), 280);
+    });
+  });
+
+  // next btn
+  card.querySelector('#btnNext').addEventListener('click', () => advance(idx, step));
+
+  // back btn
+  card.querySelector('#btnBack').addEventListener('click', () => {
+    if (idx > 0) { current--; renderCard(current, -1); }
+  });
+
+  // enter key for text
+  card.querySelectorAll('.quiz-input').forEach(inp => {
+    inp.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && step.type !== 'textarea') advance(idx, step);
+    });
+  });
+}
+
+function advance(idx, step) {
+  const val = getCurrentValue(step);
+  const err = validateCurrent(step);
+  const errEl = stage.querySelector('#fieldErr');
+  if (err) {
+    errEl.textContent = err;
+    errEl.classList.add('show');
+    stage.querySelector('.quiz-input')?.classList.add('field-error-border');
+    return;
+  }
+  if (errEl) { errEl.classList.remove('show'); }
+  answers[step.id] = val;
+
+  if (idx === steps.length - 1) {
+    submitForm();
+  } else {
+    const card = stage.querySelector('.quiz-card');
+    card.classList.add('card-exiting');
+    setTimeout(() => { current = idx + 1; renderCard(current); }, 280);
+  }
+}
+
+async function submitForm() {
+  const nextBtn = stage.querySelector('#btnNext');
+  nextBtn.disabled = true;
+  nextBtn.innerHTML = '<span class="spinner"></span> Sending…';
+
+  const payload = {
+    access_key: 'b11df953-dde4-4fc8-82c3-4c4a483aceb9',
+    subject: 'New Quote Request - CT Holdings and Investments',
+    from_name: 'CT Holdings Website',
+    full_name: answers.full_name || '',
+    business_name: answers.business_name || '',
+    email: answers.email || '',
+    phone: answers.phone || '',
+    service: answers.service || '',
+    monthly_transactions: answers.monthly_transactions || '',
+    vat_registered: answers.vat_registered || '',
+    employees: answers.employees || '',
+    message: answers.message || '',
   };
 
-  function getEl(name) {
-    return document.querySelector('[name="' + name + '"]');
-  }
-
-  function setError(name, msg) {
-    var el = getEl(name);
-    if (!el) return;
-    el.classList.remove('is-valid');
-    el.classList.add('is-invalid');
-    var fb = el.parentNode.querySelector('.invalid-feedback');
-    if (fb) fb.textContent = msg;
-  }
-
-  function clearError(name) {
-    var el = getEl(name);
-    if (!el) return;
-    el.classList.remove('is-invalid');
-    el.classList.add('is-valid');
-    var fb = el.parentNode.querySelector('.invalid-feedback');
-    if (fb) fb.textContent = '';
-  }
-
-  function resetAllStyles() {
-    Object.keys(validationRules).forEach(function(name) {
-      var el = getEl(name);
-      if (el) el.classList.remove('is-invalid', 'is-valid');
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload),
     });
+    const json = await res.json();
+    if (json.success) {
+      renderDone();
+    } else {
+      throw new Error(json.message || 'Failed');
+    }
+  } catch (e) {
+    nextBtn.disabled = false;
+    nextBtn.innerHTML = '<i class="bi bi-send-fill"></i> Retry';
+    const errEl = stage.querySelector('#fieldErr');
+    if (errEl) { errEl.textContent = 'Something went wrong. Please try again or email csmokoena11@gmail.com'; errEl.classList.add('show'); }
   }
+}
 
-  function validateField(name) {
-    var rule = validationRules[name];
-    var el = getEl(name);
-    if (!el) return true;
-    var val = el.value.trim();
-    if (!val) {
-      setError(name, rule.label + ' is required.');
-      return false;
-    }
-    if (rule.pattern && !rule.pattern.test(val)) {
-      setError(name, rule.patternMsg);
-      return false;
-    }
-    clearError(name);
-    return true;
-  }
+function renderDone() {
+  progressWrap.style.opacity = '0';
+  progressWrap.style.transition = 'opacity 0.3s';
 
-  function validateAll() {
-    var allValid = true;
-    Object.keys(validationRules).forEach(function(name) {
-      if (!validateField(name)) allValid = false;
-    });
-    return allValid;
-  }
+  const chips = [
+    answers.service,
+    answers.monthly_transactions,
+    answers.vat_registered ? `VAT: ${answers.vat_registered}` : null,
+    answers.employees,
+  ].filter(Boolean).map(v => `<span class="chip">${v}</span>`).join('');
 
-  // Attach live validation listeners
-  Object.keys(validationRules).forEach(function(name) {
-    var el = getEl(name);
-    if (!el) return;
-    el.addEventListener('blur', function() { validateField(name); });
-    el.addEventListener('change', function() { validateField(name); });
-    el.addEventListener('input', function() {
-      if (el.classList.contains('is-invalid')) validateField(name);
-    });
-  });
+  stage.innerHTML = `
+    <div class="quiz-card thankyou-card">
+      <div class="thankyou-icon"><i class="bi bi-check-lg"></i></div>
+      <h2>You're all set, ${(answers.full_name || '').split(' ')[0]}!</h2>
+      <p>We've received your details and will send a tailored quote to <strong>${answers.email}</strong> within one business day.</p>
+      <div class="summary-chips">${chips}</div>
+      <a href="index.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--red);color:var(--white);text-decoration:none;padding:13px 28px;border-radius:8px;font-weight:600;font-size:0.9rem;transition:background 0.2s;" onmouseover="this.style.background='#c0392b'" onmouseout="this.style.background='var(--red)'">
+        <i class="bi bi-house-fill"></i> Back to CT Holdings
+      </a>
+    </div>
+  `;
+}
 
-  document.getElementById('quote-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    var btn = document.getElementById('submit-btn');
-    var alertBox = document.getElementById('form-alert');
-
-    alertBox.style.display = 'none';
-
-    if (!validateAll()) {
-      alertBox.style.cssText = 'display:block; background:#f8d7da; color:#721c24; border:1px solid #f5c6cb; padding:14px 18px; border-radius:6px; margin-bottom:1.5rem; font-size:0.9rem;';
-      alertBox.innerHTML = '<i class="bi bi-exclamation-triangle-fill me-2"></i> Please fill in all required fields correctly before submitting.';
-      var firstInvalid = document.querySelector('.is-invalid');
-      if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
-    }
-
-    btn.innerHTML = 'Sending... <i class="bi bi-hourglass-split"></i>';
-    btn.disabled = true;
-
-    var formData = new FormData(this);
-    var data = Object.fromEntries(formData.entries());
-
-    try {
-      var res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
-      });
-
-      var json = await res.json();
-
-      if (json.success) {
-        resetAllStyles();
-        alertBox.style.cssText = 'display:block; background:#d4edda; color:#155724; border:1px solid #c3e6cb; padding:14px 18px; border-radius:6px; margin-bottom:1.5rem; font-size:0.9rem;';
-        alertBox.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i> Quote submitted! We\'ll be in touch within one business day.';
-        btn.innerHTML = 'Submitted! <i class="bi bi-check-circle-fill"></i>';
-        btn.style.background = '#1a6b3a';
-        this.reset();
-        resetAllStyles();
-      } else {
-        throw new Error(json.message || 'Submission failed');
-      }
-    } catch (err) {
-      alertBox.style.cssText = 'display:block; background:#f8d7da; color:#721c24; border:1px solid #f5c6cb; padding:14px 18px; border-radius:6px; margin-bottom:1.5rem; font-size:0.9rem;';
-      alertBox.innerHTML = '<i class="bi bi-exclamation-triangle-fill me-2"></i> Something went wrong. Please email us at <a href="mailto:csmokoena11@gmail.com">csmokoena11@gmail.com</a>';
-      btn.innerHTML = 'Submit Quote Request <i class="bi bi-send-fill"></i>';
-      btn.disabled = false;
-      console.error('Web3Forms error:', err);
-    }
-  });
+// init
+renderCard(0);
 </script>
 </body>
 </html>
