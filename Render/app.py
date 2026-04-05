@@ -1,8 +1,9 @@
-from flask import Flask, request, jsonify
+oslask import Flask, request, jsonify
 import requests, os
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)  # allow all origins
 HF_TOKEN = os.environ.get("HF_TOKEN")
 HF_MODEL = "mistralai/Mistral-7B-Instruct-v0.1"
 
