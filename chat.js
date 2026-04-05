@@ -1,7 +1,5 @@
 // ── CT Holdings AI Chat Widget ──
-// Uses HuggingFace Inference API (no token, public model)
-
-const HF_MODEL = 'mistralai/Mistral-7B-Instruct-v0.1';
+// Proxy: https://ct-holdings.onrender.com/chat
 
 const SYSTEM_PROMPT = `You are the helpful AI assistant for CT Holdings and Investments (Pty) Ltd, a South African bookkeeping and tax compliance firm.
 
@@ -54,18 +52,6 @@ Answer questions helpfully and concisely. Keep replies short — 2-4 sentences m
     return div;
   }
 
-  function buildPrompt() {
-    let prompt = `<s>[INST] <<SYS>>\n${SYSTEM_PROMPT}\n<</SYS>>\n\n`;
-    chatHistory.forEach((m, i) => {
-      if (m.role === 'user') {
-        prompt += (i === 0 ? '' : '[INST] ') + m.content + ' [/INST]';
-      } else {
-        prompt += m.content + ' </s><s>';
-      }
-    });
-    return prompt;
-  }
-
   async function sendMessage() {
     const text = aiInput.value.trim();
     if (!text) return;
@@ -80,37 +66,19 @@ Answer questions helpfully and concisely. Keep replies short — 2-4 sentences m
     const typingEl = appendMsg('Typing…', 'typing');
 
     try {
-      const res = await fetch(
-        `https://api-inference.huggingface.co/models/${HF_MODEL}`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            inputs: buildPrompt(),
-            parameters: {
-              max_new_tokens: 300,
-              temperature: 0.5,
-              return_full_text: false,
-            },
-          }),
-        }
-      );
-
-      if (res.status === 503) {
-        typingEl.textContent = 'Model is warming up, retrying in 8s…';
-        await new Promise(r => setTimeout(r, 8000));
-        chatHistory.pop();
-        aiInput.value = text;
-        typingEl.remove();
-        aiSend.disabled = false;
-        return;
-      }
+      const res = await fetch('https://ct-holdings.onrender.com/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          system: SYSTEM_PROMPT,
+          messages: chatHistory,
+        }),
+      });
 
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
       const data = await res.json();
-      const reply = data[0]?.generated_text?.trim()
-        || 'Sorry, I had trouble responding. Please try again.';
+      const reply = data.reply || 'Sorry, I had trouble responding. Please try again.';
 
       typingEl.remove();
       appendMsg(reply, 'bot');
